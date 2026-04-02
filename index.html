@@ -44,6 +44,7 @@
             background-color: rgba(250, 248, 245, 0.98);
         }
 
+
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -53,19 +54,36 @@
             align-items: center;
         }
 
+
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
             color: #1A1A1A;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #E8693A;
+            background: #fff;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
+            align-items: center;
+            margin: 0;
         }
+
 
         .nav-links li {
             margin-left: 2rem;
+            font-size: 1.1rem;
         }
 
         .nav-links a {
@@ -464,9 +482,10 @@
 <body>
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="logo">Govind Bohra</div>
+            <div class="logo"><img src="profile.jpg" alt="Govind Bohra" class="logo-img" /> Govind Bohra</div>
             <ul class="nav-links">
                 <li><a href="#work">Work</a></li>
+
                 <li><a href="#case-studies">Case Studies</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -482,6 +501,50 @@
             <div class="hero-buttons">
                 <a href="#work" class="btn btn-primary">View Work</a>
                 <a href="Govind Bohra Resume.pdf" download class="btn btn-outline">Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="case-studies" class="case-studies">
+        <div class="container">
+            <h2 class="section-title">Case Studies</h2>
+            <div class="case-grid">
+                <div class="case-card">
+                    <div class="case-image"></div>
+                    <div class="case-content">
+                        <h3 class="case-title">Pluse Track</h3>
+                        <span class="case-tag">Enterprise Dashboard · UI/UX Case Study</span>
+                        <p class="case-description">From fragmented data to actionable insights — a global sentiment tracking dashboard for enterprise clients.</p>
+                        <a href="pluse-track.html" class="case-link" target="_blank" rel="noopener">View Case Study →</a>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-image"></div>
+                    <div class="case-content">
+                        <h3 class="case-title">Kidcap</h3>
+                        <span class="case-tag">Fintech · Mobile App</span>
+                        <p class="case-description">An investing app allowing parents to start their kids on SIPs under guidance of mentors.</p>
+                        <a href="#" class="case-link">View Case Study →</a>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-image"></div>
+                    <div class="case-content">
+                        <h3 class="case-title">Prevent-It</h3>
+                        <span class="case-tag">HealthTech · Mobile App</span>
+                        <p class="case-description">A healthtech platform enabling patients to communicate with personal doctors via text, audio and video calls.</p>
+                        <a href="#" class="case-link">View Case Study →</a>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-image"></div>
+                    <div class="case-content">
+                        <h3 class="case-title">Freeinch</h3>
+                        <span class="case-tag">AR · Architecture</span>
+                        <p class="case-description">Connecting architects, interior designers, carpenters and consumers with unique architectural hardware using AR visualization.</p>
+                        <a href="#" class="case-link">View Case Study →</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -554,50 +617,6 @@
                         <li>Increased pre-bookings by 25% in one month</li>
                         <li>Built interactive configurators and 3D visualizations</li>
                     </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="case-studies" class="case-studies">
-        <div class="container">
-            <h2 class="section-title">Case Studies</h2>
-            <div class="case-grid">
-                <div class="case-card">
-                    <div class="case-image"></div>
-                    <div class="case-content">
-                        <h3 class="case-title">Pluse Track</h3>
-                        <span class="case-tag">Enterprise Dashboard · UI/UX Case Study</span>
-                        <p class="case-description">From fragmented data to actionable insights — a global sentiment tracking dashboard for enterprise clients.</p>
-                        <a href="#" class="case-link">View Case Study →</a>
-                    </div>
-                </div>
-                <div class="case-card">
-                    <div class="case-image"></div>
-                    <div class="case-content">
-                        <h3 class="case-title">Kidcap</h3>
-                        <span class="case-tag">Fintech · Mobile App</span>
-                        <p class="case-description">An investing app allowing parents to start their kids on SIPs under guidance of mentors.</p>
-                        <a href="#" class="case-link">View Case Study →</a>
-                    </div>
-                </div>
-                <div class="case-card">
-                    <div class="case-image"></div>
-                    <div class="case-content">
-                        <h3 class="case-title">Prevent-It</h3>
-                        <span class="case-tag">HealthTech · Mobile App</span>
-                        <p class="case-description">A healthtech platform enabling patients to communicate with personal doctors via text, audio and video calls.</p>
-                        <a href="#" class="case-link">View Case Study →</a>
-                    </div>
-                </div>
-                <div class="case-card">
-                    <div class="case-image"></div>
-                    <div class="case-content">
-                        <h3 class="case-title">Freeinch</h3>
-                        <span class="case-tag">AR · Architecture</span>
-                        <p class="case-description">Connecting architects, interior designers, carpenters and consumers with unique architectural hardware using AR visualization.</p>
-                        <a href="#" class="case-link">View Case Study →</a>
-                    </div>
                 </div>
             </div>
         </div>
