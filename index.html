@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Govind Bohra - Senior UI/UX Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #FAF8F5;
+            color: #1A1A1A;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(250, 248, 245, 0.98);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1A1A1A;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1A1A1A;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #E8693A;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #1A1A1A;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: #E8693A;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #d55a2b;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid #E8693A;
+            color: #E8693A;
+        }
+
+        .btn-outline:hover {
+            background-color: #E8693A;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1A1A1A;
+        }
+
+        /* About Section */
+        .about {
+            background-color: #FAF8F5;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #E8693A;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Work Experience */
+        .work {
+            background-color: white;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #E8693A;
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+            padding-left: 80px;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background-color: #E8693A;
+            border-radius: 50%;
+            border: 4px solid white;
+        }
+
+        .work-company {
+            font-weight: 600;
+            color: #E8693A;
+            margin-bottom: 0.5rem;
+        }
+
+        .work-role {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .work-period {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .work-points {
+            list-style: none;
+        }
+
+        .work-points li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .work-points li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: #E8693A;
+            font-weight: bold;
+        }
+
+        /* Case Studies */
+        .case-studies {
+            background-color: #FAF8F5;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .case-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .case-image {
+            height: 200px;
+            background-color: #ddd;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🎨</text></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .case-content {
+            padding: 1.5rem;
+        }
+
+        .case-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #1A1A1A;
+        }
+
+        .case-tag {
+            display: inline-block;
+            background-color: #E8693A;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .case-description {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .case-link {
+            color: #E8693A;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .case-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Skills */
+        .skills {
+            background-color: white;
+        }
+
+        .skills-groups {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .skill-group h3 {
+            margin-bottom: 1rem;
+            color: #1A1A1A;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background-color: #f0f0f0;
+            color: #1A1A1A;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .skill-tag:hover {
+            background-color: #E8693A;
+            color: white;
+        }
+
+        /* Contact */
+        .contact {
+            background-color: #FAF8F5;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        footer {
+            background-color: #1A1A1A;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .case-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-groups {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                padding-left: 60px;
+            }
+
+            .timeline-marker {
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">Govind Bohra</div>
+            <ul class="nav-links">
+                <li><a href="#work">Work</a></li>
+                <li><a href="#case-studies">Case Studies</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Designing experiences that think.</h1>
+            <p>Senior UI/UX Designer · 4+ years · Enterprise SaaS · AI Products</p>
+            <div class="hero-buttons">
+                <a href="#work" class="btn btn-primary">View Work</a>
+                <a href="Govind Bohra Resume.pdf" download class="btn btn-outline">Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm Govind — a UI/UX Designer specialising in enterprise SaaS products, AI-driven interfaces, and design systems. Currently at Clarivate, Noida as sole UX contributor across 6 IPMS products.</p>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">4+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Products at Clarivate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">40%</span>
+                        <span class="stat-label">Dev Speed Increase</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Accessibility Compliance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="work">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="work-company">Clarivate, Noida</div>
+                    <div class="work-role">UI/UX Designer</div>
+                    <div class="work-period">July 2025 - Present</div>
+                    <ul class="work-points">
+                        <li>Sole UI/UX Designer across 6 SaaS products — IDS Builder, Patent Filing, Proofreading, Translations, Patent Illustrations, Service Request Portal</li>
+                        <li>Architecting Agentic AI layer for patent filing automation</li>
+                        <li>Built centralized design system and UX component library</li>
+                        <li>Drive end-to-end UX research with C-suite and PMs</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="work-company">Zensar Technologies, Pune</div>
+                    <div class="work-role">UI/UX Designer</div>
+                    <div class="work-period">July 2022 - July 2025</div>
+                    <ul class="work-points">
+                        <li>Cross-functional team of 24+ across multiple time zones</li>
+                        <li>Led enterprise design system — boosted dev speed by 40%</li>
+                        <li>Designed Power BI and Tableau dashboards for C-suite</li>
+                        <li>Improved accessibility compliance from 60% to 100%</li>
+                        <li>Increased task completion rate by 30% via usability testing</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="work-company">HOP Electric, Jaipur</div>
+                    <div class="work-role">UI/UX Designer Intern</div>
+                    <div class="work-period">May 2022 - July 2022</div>
+                    <ul class="work-points">
+                        <li>Designed mobile-first EV booking site</li>
+                        <li>Increased pre-bookings by 25% in one month</li>
+                        <li>Built interactive configurators and 3D visualizations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="case-studies" class="case-studies">
+        <div class="container">
+            <h2 class="section-title">Case Studies</h2>
+            <div class="case-grid">
+                <div class="case-card">
+                    <div class="case-image"></div>
+                    <div class="case-content">
+                        <h3 class="case-title">Pluse Track</h3>
+                        <span class="case-tag">Enterprise Dashboard · UI/UX Case Study</span>
+                        <p class="case-description">From fragmented data to actionable insights — a global sentiment tracking dashboard for enterprise clients.</p>
+                        <a href="#" class="case-link">View Case Study →</a>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-image"></div>
+                    <div class="case-content">
+                        <h3 class="case-title">Kidcap</h3>
+                        <span class="case-tag">Fintech · Mobile App</span>
+                        <p class="case-description">An investing app allowing parents to start their kids on SIPs under guidance of mentors.</p>
+                        <a href="#" class="case-link">View Case Study →</a>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-image"></div>
+                    <div class="case-content">
+                        <h3 class="case-title">Prevent-It</h3>
+                        <span class="case-tag">HealthTech · Mobile App</span>
+                        <p class="case-description">A healthtech platform enabling patients to communicate with personal doctors via text, audio and video calls.</p>
+                        <a href="#" class="case-link">View Case Study →</a>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-image"></div>
+                    <div class="case-content">
+                        <h3 class="case-title">Freeinch</h3>
+                        <span class="case-tag">AR · Architecture</span>
+                        <p class="case-description">Connecting architects, interior designers, carpenters and consumers with unique architectural hardware using AR visualization.</p>
+                        <a href="#" class="case-link">View Case Study →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-groups">
+                <div class="skill-group">
+                    <h3>Design Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Adobe XD</span>
+                        <span class="skill-tag">Photoshop</span>
+                        <span class="skill-tag">Illustrator</span>
+                        <span class="skill-tag">Miro</span>
+                        <span class="skill-tag">Sketch</span>
+                        <span class="skill-tag">Figma Make AI</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3>UI/UX</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Design Systems</span>
+                        <span class="skill-tag">Design Governance</span>
+                        <span class="skill-tag">Wireframing</span>
+                        <span class="skill-tag">High-Fidelity Design</span>
+                        <span class="skill-tag">Interaction Design</span>
+                        <span class="skill-tag">Information Architecture</span>
+                        <span class="skill-tag">Prototyping</span>
+                        <span class="skill-tag">Mobile-First</span>
+                        <span class="skill-tag">Responsive Design</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3>AI & Emerging</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Agentic AI Design</span>
+                        <span class="skill-tag">AI-Assisted Workflows</span>
+                        <span class="skill-tag">Vibe Coding</span>
+                        <span class="skill-tag">Conversational UX</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3>Frontend</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">Dev Handoff</span>
+                        <span class="skill-tag">Front-End Feasibility</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3>Research</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Usability Testing</span>
+                        <span class="skill-tag">User Interviews</span>
+                        <span class="skill-tag">A/B Testing</span>
+                        <span class="skill-tag">Competitive Analysis</span>
+                        <span class="skill-tag">Personas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Let's build something great.</h2>
+            <p>Open to senior roles, freelance projects, and AI product collaborations.</p>
+            <div class="contact-buttons">
+                <a href="mailto:gbohra9@gmail.com" class="btn btn-primary">Email Me</a>
+                <a href="#" class="btn btn-outline">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Govind Bohra. Designed & built with intent.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Fade-in animation on scroll (simple implementation)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections for fade-in
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
