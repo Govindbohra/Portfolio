@@ -204,6 +204,37 @@
             border-radius: 6px;
             display: block;
             margin: 24px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot-img:hover {
+            transform: scale(1.01);
+        }
+
+        .image-wrapper {
+            margin: 24px 0;
+            overflow: hidden;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid rgba(234,234,234,0.14);
+            border-radius: 6px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-wrapper:hover img {
+            transform: scale(1.01);
+        }
+
+        .image-caption {
+            font-size: 0.85rem;
+            color: rgba(234,234,234,0.56);
+            margin-top: 10px;
+            text-align: center;
+            font-style: italic;
         }
 
         .principle-grid {
@@ -327,7 +358,7 @@
             </div>
             <p class="hero-description">Designing a scalable system that transforms fragmented global sentiment data into actionable insights for enterprise decision-makers.</p>
             <div class="hero-mockup">
-                <img src="pulse-track-mockup.png" alt="Pulse Track Dashboard Mockup" />
+                <img src="images/pulse-track-mockup.png" alt="Pulse Track Dashboard Mockup" />
             </div>
         </section>
 
@@ -472,9 +503,10 @@
                     <p><strong>What failed:</strong> Usability testing showed 70% of users felt overwhelmed. They ignored features. Adoption was poor.</p>
                     <p><strong>Why:</strong> We solved for power users, not primary users. We added options instead of reducing choices.</p>
                 </div>
-                <div class="image-placeholder">
-                    <span>Iteration 1 - Kitchen Sink Dashboard</span>
+                <div class="image-wrapper">
+                    <img src="images/iteration-1.png" alt="Iteration 1 - Kitchen Sink Dashboard" />
                 </div>
+                <p class="image-caption">First iteration: over-featured dashboard that overwhelmed users.</p>
             </div>
 
             <div class="subsection">
@@ -484,9 +516,10 @@
                     <p><strong>What improved:</strong> Adoption increased 40%. Users felt guided. Average session time dropped to 3 minutes (vs. 15+ on v1).</p>
                     <p><strong>What remained challenging:</strong> Advanced users still wanted more flexibility. Regional managers needed custom views.</p>
                 </div>
-                <div class="image-placeholder">
-                    <span>Iteration 2 - Guided Dashboard</span>
+                <div class="image-wrapper">
+                    <img src="images/iteration-2.png" alt="Iteration 2 - Guided Dashboard" />
                 </div>
+                <p class="image-caption">Second iteration: guided approach improved adoption but limited power users.</p>
             </div>
 
             <div class="subsection">
@@ -495,9 +528,10 @@
                     <p><strong>What we built:</strong> A unified dashboard combining both approaches. Quick insights by default. Advanced filters on-demand. Smart suggestions based on data patterns.</p>
                     <p><strong>Why it worked:</strong> Satisfied both beginner and advanced users. Reduced cognitive load for 80%, enabled power for 20%. Adoption increased to 85%.</p>
                 </div>
-                <div class="image-placeholder">
-                    <span>Iteration 3 - Final Unified Dashboard</span>
+                <div class="image-wrapper">
+                    <img src="images/iteration-3.png" alt="Iteration 3 - Final Unified Dashboard" />
                 </div>
+                <p class="image-caption">Final iteration: hybrid approach balancing simplicity and power.</p>
             </div>
         </section>
 
@@ -508,31 +542,46 @@
                 <div class="feature">
                     <h3 class="feature-title">Unified Dashboard</h3>
                     <p class="feature-desc">Single view consolidating all sentiment data from all regions. Top-level insights displayed prominently. Hierarchy implemented through visual weight, color, and placement—not typography size.</p>
-                    <img src="dashboard-overview.png" alt="Unified Dashboard" class="screenshot-img" />
+                    <div class="image-wrapper">
+                        <img src="images/dashboard-overview.png" alt="Unified Dashboard" />
+                    </div>
+                    <p class="image-caption">Consolidated view with global sentiment metrics and drill-down capability.</p>
                 </div>
 
                 <div class="feature">
                     <h3 class="feature-title">Smart Filters & Questions</h3>
                     <p class="feature-desc">Pre-built question templates ("Is sentiment declining?", "What's changing?", "Which regions need attention?") alongside advanced filters for power users. Autocomplete on filters. Smart defaults based on user history.</p>
-                    <img src="dashboard-overview.png" alt="Smart Filters UI" class="screenshot-img" />
+                    <div class="image-wrapper">
+                        <img src="images/filters.png" alt="Smart Filters UI" />
+                    </div>
+                    <p class="image-caption">Guided questions reduce cognitive load; advanced filters available on demand.</p>
                 </div>
 
                 <div class="feature">
                     <h3 class="feature-title">Insight-Driven Visuals</h3>
                     <p class="feature-desc">Charts highlight anomalies automatically. Color coding for severity. Trend indicators show direction at a glance. All visualizations tested for colorblind accessibility.</p>
-                    <img src="client-detail.png" alt="Data Visualization" class="screenshot-img" />
+                    <div class="image-wrapper">
+                        <img src="images/data-viz.png" alt="Data Visualization" />
+                    </div>
+                    <p class="image-caption">Visual hierarchy and color coding highlight key insights automatically.</p>
                 </div>
 
                 <div class="feature">
                     <h3 class="feature-title">AI Insights Layer</h3>
                     <p class="feature-desc">Automated suggestions: "Sentiment dropped 15% in North region," "New spike in feedback about feature X." AI highlights what changed and why. Explainable alerts, not black boxes.</p>
-                    <img src="client-detail.png" alt="AI Insights Panel" class="screenshot-img" />
+                    <div class="image-wrapper">
+                        <img src="images/ai-insights.png" alt="AI Insights Panel" />
+                    </div>
+                    <p class="image-caption">AI-generated insights with clear reasoning and actionable next steps.</p>
                 </div>
 
                 <div class="feature">
                     <h3 class="feature-title">Responsive Everywhere</h3>
                     <p class="feature-desc">Optimized for desktop (deep analysis), tablet (commute briefings), mobile (quick checks). No feature loss on mobile—just reordered priorities.</p>
-                    <img src="dashboard-overview.png" alt="Mobile View" class="screenshot-img" />
+                    <div class="image-wrapper">
+                        <img src="images/dashboard-overview.png" alt="Mobile View" />
+                    </div>
+                    <p class="image-caption">Same system, optimized for every screen size with no feature loss.</p>
                 </div>
             </div>
         </section>
