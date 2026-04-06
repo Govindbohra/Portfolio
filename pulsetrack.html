@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse Track — Enterprise Sentiment Intelligence Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: dark;
+            font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+            color: #EAEAEA;
+            background: #0D0D0D;
+            accent-color: #E8693A;
+            line-height: 1.5;
+            letter-spacing: .02em;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #0D0D0D;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 32px 28px 56px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: #E8693A;
+            font-size: 0.95rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            padding: 64px 0 48px;
+            display: grid;
+            gap: 24px;
+            max-width: 860px;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 4vw, 4.2rem);
+            line-height: 1.08;
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: rgba(234,234,234,0.88);
+            margin: 0;
+        }
+
+        .hero-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #E8693A;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: rgba(234,234,234,0.88);
+            line-height: 1.7;
+        }
+
+        .section {
+            padding: 56px 0;
+            border-top: 1px solid rgba(234,234,234,0.12);
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.24em;
+            color: rgba(234,234,234,0.72);
+            margin-bottom: 24px;
+        }
+
+        .section-content {
+            font-size: 1rem;
+            color: rgba(234,234,234,0.88);
+            line-height: 1.7;
+        }
+
+        .grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .image-placeholder {
+            border: 1px dashed rgba(255,255,255,0.2);
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 0.9rem;
+            transition: transform 0.2s ease;
+        }
+
+        .image-placeholder:hover {
+            transform: scale(1.02);
+        }
+
+        .iframe-container {
+            margin: 24px 0;
+        }
+
+        .iframe-container iframe {
+            width: 100%;
+            height: 500px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 720px) {
+            .page {
+                padding: 24px 18px 40px;
+            }
+
+            .hero {
+                padding-top: 40px;
+                gap: 18px;
+            }
+
+            .iframe-container iframe {
+                height: 300px;
+            }
+
+            .hero-metrics {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <a href="index.html#selected-work" class="back-link">← Back to Portfolio</a>
+
+        <section class="hero">
+            <h1 class="hero-title">Pulse Track</h1>
+            <p class="hero-subtitle">Enterprise Sentiment Intelligence Dashboard</p>
+            <div class="hero-metrics">
+                <span>+30% task completion</span>
+                <span>-50% feedback loops</span>
+            </div>
+            <p class="hero-description">Designing a scalable system that transforms fragmented global sentiment data into actionable insights.</p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Live Prototype</h2>
+            <div class="iframe-container">
+                <iframe 
+                  style="border: 1px solid rgba(0, 0, 0, 0.1);" 
+                  width="800" 
+                  height="450" 
+                  src="https://embed.figma.com/proto/oi2haCGUEsuXqV7CWk0jSf/Govind-UIUX-Design-File-2024?node-id=4641-6917&viewport=1078%2C286%2C0.07&scaling=scale-down&content-scaling=fixed&starting-point-node-id=4641%3A6917&page-id=4588%3A1316&embed-host=share" 
+                  allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Context</h2>
+            <div class="section-content">
+                <p>Enterprise clients manage sentiment data across multiple regions, products, and teams. The scale involves millions of data points from social media, surveys, and internal feedback systems. The problem matters because slow, fragmented insights lead to delayed decisions and missed opportunities in competitive markets.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Problem</h2>
+            <div class="section-content">
+                <p>Data existed, but it wasn’t actionable. Fragmented sources created high cognitive load, slow decision-making, and low adoption rates. Users struggled with complex filters, overloaded dashboards, and disconnected workflows.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Role</h2>
+            <div class="section-content">
+                <p>End-to-end UX ownership across information architecture, interaction design, and UI systems. Collaborated closely with product managers and engineering teams to align on scalable solutions.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Insights</h2>
+            <div class="section-content">
+                <ul>
+                    <li>Users need insights, not raw data</li>
+                    <li>Dashboards overloaded users with information</li>
+                    <li>Filters were complex and unintuitive</li>
+                    <li>Users think in questions, not data points</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Design Principles</h2>
+            <div class="grid grid-3">
+                <div class="section-content">
+                    <strong>Reduce cognitive load</strong>
+                    <p>Simplify interfaces to focus on key actions and insights.</p>
+                </div>
+                <div class="section-content">
+                    <strong>Prioritize action</strong>
+                    <p>Design for decision-making, not data consumption.</p>
+                </div>
+                <div class="section-content">
+                    <strong>System over screens</strong>
+                    <p>Build scalable patterns that work across contexts.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Solution</h2>
+
+            <div class="grid grid-2">
+                <div>
+                    <h3>Unified Dashboard</h3>
+                    <p>Single view consolidating all sentiment data with contextual insights.</p>
+                    <div class="image-placeholder">
+                        <span>Dashboard Overview Screenshot</span>
+                    </div>
+                </div>
+                <div>
+                    <h3>Smart Filters</h3>
+                    <p>Intuitive controls that adapt to user questions and data patterns.</p>
+                    <div class="image-placeholder">
+                        <span>Filters UI Screenshot</span>
+                    </div>
+                </div>
+                <div>
+                    <h3>Insight-driven Visuals</h3>
+                    <p>Charts and graphs that highlight trends and anomalies automatically.</p>
+                    <div class="image-placeholder">
+                        <span>Data Visualization Screenshot</span>
+                    </div>
+                </div>
+                <div>
+                    <h3>AI Insights</h3>
+                    <p>Automated recommendations based on sentiment patterns and user behavior.</p>
+                    <div class="image-placeholder">
+                        <span>AI Insights Panel Screenshot</span>
+                    </div>
+                </div>
+                <div>
+                    <h3>Responsive Experience</h3>
+                    <p>Optimized for desktop, tablet, and mobile decision-making.</p>
+                    <div class="image-placeholder">
+                        <span>Mobile View Screenshot</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Impact</h2>
+            <div class="section-content">
+                <ul>
+                    <li>+30% task completion through streamlined workflows</li>
+                    <li>-50% feedback loops via faster insight delivery</li>
+                    <li>Faster decision-making across global teams</li>
+                    <li>Improved adoption rates and user satisfaction</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Tradeoffs</h2>
+            <div class="section-content">
+                <ul>
+                    <li>Clarity vs flexibility: Prioritized usability over customization</li>
+                    <li>Controlled customization to maintain system consistency</li>
+                    <li>Gradual AI adoption to build user trust</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Reflection</h2>
+            <div class="section-content">
+                <p>Future improvements include deeper personalization, advanced AI predictions, and scaling to more data sources. The system proved that thoughtful design can transform complex data into clear, actionable insights.</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.classList.add('fade-in');
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
