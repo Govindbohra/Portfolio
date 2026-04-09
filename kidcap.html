@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kidcap — Case Study | Govind Bohra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: dark;
+            font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+            color: #EAEAEA;
+            background: #0D0D0D;
+            accent-color: #E8693A;
+            line-height: 1.6;
+            letter-spacing: .02em;
+        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; min-height: 100vh; background: #0D0D0D; }
+        a { color: inherit; text-decoration: none; }
+        .page { max-width: 960px; margin: 0 auto; padding: 32px 28px 56px; }
+        .back-link { display: inline-block; margin-bottom: 32px; color: #E8693A; font-size: 0.9rem; letter-spacing: .1em; text-transform: uppercase; }
+        .back-link:hover { opacity: 0.8; }
+        .hero { padding: 48px 0 56px; display: grid; gap: 24px; border-bottom: 1px solid rgba(234,234,234,0.12); }
+        .hero-mockup { border: 1px solid rgba(234,234,234,0.14); border-radius: 8px; overflow: hidden; margin-top: 24px; }
+        .hero-mockup img { width: 100%; height: auto; display: block; }
+        .hero-title { font-size: clamp(2.5rem, 4vw, 4.2rem); line-height: 1.08; margin: 0; letter-spacing: -0.02em; }
+        .hero-subtitle { font-size: 1.1rem; color: rgba(234,234,234,0.88); margin: 0; }
+        .hero-metrics { display: flex; flex-wrap: wrap; gap: 24px; font-size: 1.05rem; font-weight: 600; color: #E8693A; margin: 8px 0 0 0; }
+        .hero-description { font-size: 1rem; color: rgba(234,234,234,0.88); line-height: 1.8; max-width: 680px; }
+        .section { padding: 48px 0; border-bottom: 1px solid rgba(234,234,234,0.12); }
+        .section:last-child { border-bottom: none; }
+        .section-title { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.28em; color: rgba(234,234,234,0.72); margin-bottom: 24px; }
+        .section-content { font-size: 1rem; color: rgba(234,234,234,0.88); line-height: 1.8; }
+        .section-content p { margin: 0 0 16px 0; }
+        .section-content ul { margin: 0; padding-left: 20px; }
+        .section-content li { margin-bottom: 12px; color: rgba(234,234,234,0.88); }
+        .quote { padding: 20px 18px; border-left: 3px solid #E8693A; margin: 24px 0; color: #E8693A; font-weight: 600; font-size: 0.98rem; }
+        .grid-2 { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .image-wrapper { margin: 24px 0; overflow: hidden; }
+        .image-wrapper img { width: 100%; height: auto; display: block; border: 1px solid rgba(234,234,234,0.14); border-radius: 6px; transition: transform 0.3s ease; }
+        .image-wrapper:hover img { transform: scale(1.01); }
+        .image-caption { font-size: 0.85rem; color: rgba(234,234,234,0.56); margin-top: 10px; text-align: center; font-style: italic; }
+        @media (max-width: 720px) { .page { padding: 24px 18px 40px; } .hero { padding: 40px 0 40px; } }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <a href="index.html#selected-work" class="back-link">← Back to Portfolio</a>
+        <section class="hero">
+            <h1 class="hero-title">Kidcap</h1>
+            <p class="hero-subtitle">Fintech Savings Experience for Kids and Parents</p>
+            <div class="hero-metrics">
+                <span>+18% activation</span>
+                <span>4.8 NPS on onboarding</span>
+                <span>Compliance-ready UX</span>
+            </div>
+            <p class="hero-description">Kidcap is a savings experience designed for families, pairing mentor-led SIP onboarding with child-friendly learning paths. The product needed to be engaging for kids, transparent for parents, and compliant for finance teams.</p>
+            <div class="hero-mockup">
+                <img src="https://dummyimage.com/900x450/191919/ffffff&text=Kidcap+Savings+Experience" alt="Kidcap Savings Experience" />
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Overview</h2>
+            <div class="section-content">
+                <p><strong>Kidcap</strong> makes long-term saving easy for families by blending playful education with transparent finance tools. The goal was to create an onboarding flow that built trust with parents while keeping children engaged through simple interactions and friendly language.</p>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Problem</h2>
+            <div class="section-content">
+                <ul>
+                    <li>Parents were unsure how to explain SIPs and savings to children.</li>
+                    <li>Existing fintech apps felt too complex or too adult for younger audiences.</li>
+                    <li>Compliance requirements made onboarding slow and trust-dependent.</li>
+                    <li>Families wanted a sense of progress and learning, not just account setup.</li>
+                </ul>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Solution</h2>
+            <div class="section-content">
+                <ul>
+                    <li>Designed a dual-path onboarding experience for parents and kids.</li>
+                    <li>Created mentor-led guidance for SIP setup, explaining finance concepts in plain language.</li>
+                    <li>Used goal-based interaction and progress trackers to make savings feel rewarding.</li>
+                    <li>Built a compliance-ready information architecture for KYC, consent, and documentation.</li>
+                </ul>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Process</h2>
+            <div class="section-content">
+                <div class="grid-2">
+                    <div>
+                        <h3>Research</h3>
+                        <ul>
+                            <li>Interviewed parents and financial coaches.</li>
+                            <li>Mapped children's attention patterns during digital learning.</li>
+                            <li>Analyzed competitor onboarding flows for family fintech.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Design</h3>
+                        <ul>
+                            <li>Built low-fidelity flows to align on parent/child dual journeys.</li>
+                            <li>Created interactive prototypes with playful visual cues.</li>
+                            <li>Validating content tone through usability testing with families.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Impact</h2>
+            <div class="section-content">
+                <ul>
+                    <li>Improved activation by 18% for first-time family users.</li>
+                    <li>Raised first-session satisfaction to 4.8 NPS.</li>
+                    <li>Reduced onboarding drop-off by 27% with guided mentor flows.</li>
+                </ul>
+                <div class="quote">Kidcap helped families feel confident about long-term savings by making every step clear, visual, and engaging.</div>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Tools Used</h2>
+            <div class="section-content">
+                <ul>
+                    <li>Figma, Miro, UserTesting, Zeplin, Notion</li>
+                </ul>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">My Role</h2>
+            <div class="section-content">
+                <ul>
+                    <li>Led product strategy, UX design, and family-focused research.</li>
+                    <li>Designed onboarding journeys for both parents and children.</li>
+                    <li>Aligned compliance, product, and marketing teams on the final experience.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
