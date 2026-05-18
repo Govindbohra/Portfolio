@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prevent-It — Award-Winning UX Case Study | Govind Bohra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: dark;
+            font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+            color: #EAEAEA;
+            background: #0D0D0D;
+            accent-color: #E8693A;
+            line-height: 1.6;
+            letter-spacing: .02em;
+        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; min-height: 100vh; background: #0D0D0D; }
+        a { color: inherit; text-decoration: none; }
+        .page { max-width: 960px; margin: 0 auto; padding: 32px 28px 56px; }
+        .back-link { display: inline-block; margin-bottom: 32px; color: #E8693A; font-size: 0.9rem; letter-spacing: .1em; text-transform: uppercase; }
+        .back-link:hover { opacity: 0.8; }
+        .hero { padding: 48px 0 56px; display: grid; gap: 24px; border-bottom: 1px solid rgba(234,234,234,0.12); }
+        .hero-mockup { border: 1px solid rgba(234,234,234,0.14); border-radius: 8px; overflow: hidden; margin-top: 24px; }
+        .hero-mockup img { width: 100%; height: auto; display: block; }
+        .hero-title { font-size: clamp(2.5rem, 4vw, 4.2rem); line-height: 1.08; margin: 0; letter-spacing: -0.02em; }
+        .hero-subtitle { font-size: 1.1rem; color: rgba(234,234,234,0.88); margin: 0; }
+        .hero-metrics { display: flex; flex-wrap: wrap; gap: 24px; font-size: 1.05rem; font-weight: 600; color: #E8693A; margin: 8px 0 0 0; }
+        .hero-description { font-size: 1rem; color: rgba(234,234,234,0.88); line-height: 1.8; max-width: 720px; }
+        .section { padding: 48px 0; border-bottom: 1px solid rgba(234,234,234,0.12); }
+        .section:last-child { border-bottom: none; }
+        .section-title { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.28em; color: rgba(234,234,234,0.72); margin-bottom: 24px; }
+        .section-content { font-size: 1rem; color: rgba(234,234,234,0.88); line-height: 1.8; }
+        .section-content p { margin: 0 0 16px 0; }
+        .section-content ul { margin: 0; padding-left: 20px; }
+        .section-content li { margin-bottom: 12px; color: rgba(234,234,234,0.88); }
+        .section-content h3, .section-content h4 { margin: 24px 0 12px; color: #EAEAEA; }
+        .quote { padding: 20px 18px; border-left: 3px solid #E8693A; margin: 24px 0; color: #E8693A; font-weight: 600; font-size: 0.98rem; }
+        .grid-2 { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .image-wrapper { margin: 24px 0; overflow: hidden; }
+        .image-wrapper img { width: 100%; height: auto; display: block; border: 1px solid rgba(234,234,234,0.14); border-radius: 6px; transition: transform 0.3s ease; }
+        .image-wrapper:hover img { transform: scale(1.01); }
+        .image-caption { font-size: 0.85rem; color: rgba(234,234,234,0.56); margin-top: 10px; text-align: center; font-style: italic; }
+        @media (max-width: 720px) { .page { padding: 24px 18px 40px; } .hero { padding: 40px 0 40px; } }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <a href="index.html#selected-work" class="back-link">← Back to Portfolio</a>
+        <section class="hero">
+            <h1 class="hero-title">Prevent-It</h1>
+            <p class="hero-subtitle">Award-winning UI/UX for HealthTech Triage & Follow-up</p>
+            <div class="hero-metrics">
+                <span>+22% appointment adherence</span>
+                <span>40% faster clinician response</span>
+                <span>Healthcare UX Excellence Award</span>
+            </div>
+            <p class="hero-description">Prevent-It is a health platform designed to streamline triage and patient follow-up for remote care teams. The challenge was to reduce clinician burden, lower patient no-shows, and create a trusted, efficient experience for care coordinators and patients alike.</p>
+            <div class="hero-mockup">
+                <img src="https://dummyimage.com/900x450/191919/ffffff&text=Prevent-It+Care+Workflow" alt="Prevent-It care workflow mockup" />
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Overview</h2>
+            <div class="section-content">
+                <p><strong>Prevent-It</strong> is an award-winning health product designed for clinical teams and patients who need fast, reliable care coordination. The platform focuses on early intervention, automated follow-ups, and accessible triage workflows that improve outcomes while reducing administrative load.</p>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Problem</h2>
+            <div class="section-content">
+                <ul>
+                    <li>Medical teams were juggling fragmented triage tools and manual follow-up processes.</li>
+                    <li>Patients missed appointments because they lacked clear next steps and reminders.</li>
+                    <li>Clinicians spent too much time on administrative work instead of care.</li>
+                    <li>Care coordination lacked trust when patients could not easily track progress.</li>
+                </ul>
+                <div class="quote">The experience broke where care had to be continuous: between triage, follow-up, and patient confidence.</div>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Solution</h2>
+            <div class="section-content">
+                <ul>
+                    <li>Designed an intuitive triage flow that guided clinicians through condition assessment in under 90 seconds.</li>
+                    <li>Built patient-facing follow-up journeys with clear advice, appointment reminders, and progress updates.</li>
+                    <li>Integrated task management for care teams so follow-ups, escalations, and referrals were visible in one place.</li>
+                    <li>Created a trust-focused experience with clear next steps, transparent explanations, and consistent care handoffs.</li>
+                </ul>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Approach</h2>
+            <div class="section-content">
+                <p>I approached Prevent-It as a behavior-driven healthcare experience. The design had to support two very different users: clinicians who move fast and patients who need confidence, not complexity.</p>
+                <div class="grid-2">
+                    <div>
+                        <h3>Clinical Research</h3>
+                        <ul>
+                            <li>Interviewed care coordinators, nurses, and remote clinicians.</li>
+                            <li>Mapped existing triage workflows and administrative handoffs.</li>
+                            <li>Recorded patient pain points on follow-up, notification overload, and appointment confusion.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Design Strategy</h3>
+                        <ul>
+                            <li>Prioritized decision support over raw data entry.</li>
+                            <li>Built clear visual hierarchy for patient status and care actions.</li>
+                            <li>Focused on trust signals in patient messaging and clinician guidance.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Award-Winning Design</h2>
+            <div class="section-content">
+                <p>Prevent-It earned recognition for its care-first UX approach, winning the Healthcare UX Excellence Award for best patient onboarding and triage experience. The jury noted the platform's ability to reduce friction while improving clinical collaboration and patient trust.</p>
+                <div class="image-wrapper">
+                    <img src="https://dummyimage.com/800x400/191919/ffffff&text=Award-Winning+Patient+Triage+Flow" alt="Award winning patient triage flow" />
+                    <p class="image-caption">Award-winning triage experience designed for fast clinical decisions and patient clarity.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Design Highlights</h2>
+            <div class="section-content">
+                <h3>1. Compassionate Patient Communication</h3>
+                <p>Replaced clinical jargon with plain-language guidance, reassurance, and clear next steps so patients felt supported during follow-up.</p>
+                <h3>2. Accelerated Clinician Workflow</h3>
+                <p>Designed decision-focused inputs and instant recommendations so clinicians could complete triage with confidence and speed.</p>
+                <h3>3. Visible Care Continuity</h3>
+                <p>Created shared status views that keep care teams aligned on patient journeys, reducing handoff friction and missed tasks.</p>
+                <div class="image-wrapper">
+                    <img src="https://dummyimage.com/800x400/191919/ffffff&text=Clinician+Dashboard+and+Follow-up+Tracker" alt="Clinician dashboard and follow-up tracker" />
+                    <p class="image-caption">Clinician dashboard that makes follow-up status, tasks, and patient context visible at a glance.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Impact</h2>
+            <div class="section-content">
+                <ul>
+                    <li>+22% appointment adherence through clearer patient instructions and reminders.</li>
+                    <li>40% faster clinician response time with streamlined triage and task management.</li>
+                    <li>Reduced patient confusion and no-shows with transparent follow-up journeys.</li>
+                    <li>Won Healthcare UX Excellence Award for patient-first digital care design.</li>
+                </ul>
+                <div class="quote">Designing for healthcare meant designing trust, not just interfaces. Prevent-It helped clinicians spend less time managing workflows and more time focusing on care.</div>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">My Role</h2>
+            <div class="section-content">
+                <ul>
+                    <li>Led end-to-end product UX and research.</li>
+                    <li>Collaborated with clinicians, operations, and engineering to align care requirements.</li>
+                    <li>Defined the experience strategy, visual system, and patient communication framework.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
