@@ -3,102 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pulse Track — Case Study | Govind Bohra</title>
+    <title>PulseTrack - Case Study | Govind Bohra</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        /* -----------------------------------------
+           DESIGN SYSTEM - matches index.html exactly
+           Only change: accent #E8693A ? #0052CC (Atlassian enterprise blue)
+        ----------------------------------------- */
         :root {
             color-scheme: dark;
-            font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+            font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco,
+                         Consolas, 'Liberation Mono', monospace;
             color: #EAEAEA;
             background: #0D0D0D;
             accent-color: #E8693A;
             line-height: 1.6;
             letter-spacing: .02em;
         }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; min-height: 100vh; background: #0D0D0D; }
+        a { color: inherit; text-decoration: none; }
 
-        * {
-            box-sizing: border-box;
+        /* -- Layout -- */
+        .page { max-width: 1120px; margin: 0 auto; padding: 32px 28px 80px; }
+        .layout { display: grid; grid-template-columns: minmax(0,1fr) 240px; gap: 32px; }
+        .content { min-width: 0; }
+        .side-nav {
+            position: sticky;
+            top: 24px;
+            align-self: start;
+            padding: 14px 14px;
+            border: 1px solid rgba(234,234,234,0.12);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.02);
+            max-height: calc(100vh - 48px);
+            overflow: auto;
+            max-width: 200px;
         }
-
-        html {
-            scroll-behavior: smooth;
+        .side-nav h2 {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: rgba(234,234,234,0.55);
+            margin: 0 0 12px;
         }
-
-        body {
-            margin: 0;
-            min-height: 100vh;
-            background: #0D0D0D;
-        }
-
-        a {
-            color: inherit;
+        .side-nav a {
+            display: block;
+            color: rgba(234,234,234,0.82);
             text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
+        .side-nav a:hover { color: #EAEAEA; }
+        .side-nav a.active { color: #E8693A; font-weight: 600; }
+        .section, .hero { scroll-margin-top: 96px; }
 
-        .page {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 32px 28px 56px;
-        }
-
+        /* -- Back link -- */
         .back-link {
             display: inline-block;
             margin-bottom: 32px;
-            color: #E8693A;
+            color: #0052CC;
             font-size: 0.9rem;
             letter-spacing: .1em;
             text-transform: uppercase;
         }
+        .back-link:hover { opacity: 0.75; }
 
-        .back-link:hover {
-            opacity: 0.8;
-        }
-
+        /* -- Hero -- */
         .hero {
             padding: 48px 0 56px;
             display: grid;
-            gap: 24px;
+            gap: 20px;
             border-bottom: 1px solid rgba(234,234,234,0.12);
         }
-
-        .hero-mockup {
-            border: 1px solid rgba(234,234,234,0.14);
-            border-radius: 8px;
-            overflow: hidden;
-            margin-top: 24px;
+        .hero-eyebrow {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.34em;
+            color: rgba(234,234,234,0.5);
         }
-
-        .hero-mockup img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
         .hero-title {
             font-size: clamp(2.5rem, 4vw, 4.2rem);
             line-height: 1.08;
             margin: 0;
             letter-spacing: -0.02em;
         }
-
         .hero-subtitle {
-            font-size: 1.1rem;
-            color: rgba(234,234,234,0.88);
+            font-size: 1.05rem;
+            color: rgba(234,234,234,0.72);
             margin: 0;
         }
-
         .hero-metrics {
             display: flex;
             flex-wrap: wrap;
-            gap: 24px;
-            font-size: 1.05rem;
+            gap: 20px;
+            font-size: 0.95rem;
             font-weight: 600;
             color: #E8693A;
-            margin: 8px 0 0 0;
+            margin: 4px 0 0;
         }
-
         .hero-description {
             font-size: 1rem;
             color: rgba(234,234,234,0.88);
@@ -106,116 +116,92 @@
             max-width: 680px;
         }
 
+        /* -- Project meta strip -- */
+        .meta-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1px;
+            background: rgba(234,234,234,0.1);
+            border: 1px solid rgba(234,234,234,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        .meta-cell {
+            background: #0D0D0D;
+            padding: 14px 18px;
+        }
+        .meta-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: rgba(234,234,234,0.4);
+            margin-bottom: 5px;
+        }
+        .meta-value {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #EAEAEA;
+        }
+
+        /* -- Section -- */
         .section {
-            padding: 48px 0;
+            padding: 56px 0;
             border-bottom: 1px solid rgba(234,234,234,0.12);
         }
-
-        .section:last-child {
-            border-bottom: none;
-        }
+        .section:last-child { border-bottom: none; }
 
         .section-title {
-            font-size: 0.95rem;
+            font-size: 0.82rem;
             text-transform: uppercase;
-            letter-spacing: 0.28em;
-            color: rgba(234,234,234,0.72);
-            margin-bottom: 24px;
+            letter-spacing: 0.32em;
+            color: rgba(234,234,234,0.45);
+            margin-bottom: 8px;
         }
-
+        .section-heading {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #EAEAEA;
+            margin: 0 0 24px;
+            line-height: 1.3;
+        }
         .section-content {
             font-size: 1rem;
-            color: rgba(234,234,234,0.88);
-            line-height: 1.8;
+            color: rgba(234,234,234,0.85);
+            line-height: 1.85;
+        }
+        .section-content p { margin: 0 0 16px; }
+        .section-content p:last-child { margin-bottom: 0; }
+        .section-content ul { margin: 0; padding-left: 20px; }
+        .section-content li { margin-bottom: 10px; }
+
+        /* -- Pull quote -- */
+        .quote {
+            padding: 20px 20px;
+            border-left: 3px solid #E8693A;
+            margin: 28px 0;
+            color: #FFAB57;
+            font-weight: 600;
+            font-size: 0.98rem;
+            line-height: 1.7;
         }
 
-        .section-content p {
-            margin: 0 0 16px 0;
-        }
-
-        .section-content ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-
-        .section-content li {
-            margin-bottom: 12px;
-            color: rgba(234,234,234,0.88);
-        }
-
-        .subsection {
-            margin-top: 28px;
-        }
-
+        /* -- Subsection -- */
+        .subsection { margin-top: 32px; }
         .subsection-title {
             font-size: 0.95rem;
             font-weight: 600;
             color: #EAEAEA;
             margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(234,234,234,0.08);
         }
 
-        .quote {
-            padding: 20px 18px;
-            border-left: 3px solid #E8693A;
-            margin: 24px 0;
-            color: #E8693A;
-            font-weight: 600;
-            font-size: 0.98rem;
-        }
-
-        .grid {
-            display: grid;
-            gap: 24px;
-            margin: 24px 0;
-        }
-
-        .grid-2 {
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        }
-
-        .grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        }
-
-        .card {
-            padding: 20px 18px;
-            border: 1px solid rgba(234,234,234,0.14);
-            border-radius: 4px;
-            background: rgba(255,255,255,0.02);
-        }
-
-        .card-title {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #EAEAEA;
-        }
-
-        .card-content {
-            font-size: 0.95rem;
-            color: rgba(234,234,234,0.8);
-            line-height: 1.7;
-        }
-
-        .screenshot-img {
-            width: 100%;
-            height: auto;
-            border: 1px solid rgba(234,234,234,0.14);
-            border-radius: 6px;
-            display: block;
-            margin: 24px 0;
-            transition: transform 0.3s ease;
-        }
-
-        .screenshot-img:hover {
-            transform: scale(1.01);
-        }
-
+        /* -- Image wrapper - use for ALL screenshots -- */
         .image-wrapper {
-            margin: 24px 0;
+            margin: 20px 0;
             overflow: hidden;
         }
-
         .image-wrapper img {
             width: 100%;
             height: auto;
@@ -224,411 +210,1056 @@
             border-radius: 6px;
             transition: transform 0.3s ease;
         }
-
-        .image-wrapper:hover img {
-            transform: scale(1.01);
-        }
-
+        .image-wrapper:hover img { transform: scale(1.005); }
         .image-caption {
-            font-size: 0.85rem;
-            color: rgba(234,234,234,0.56);
+            font-size: 0.82rem;
+            color: rgba(234,234,234,0.45);
             margin-top: 10px;
             text-align: center;
             font-style: italic;
         }
 
-        .principle-grid {
+        /* -- Image placeholder - swap for real img when ready -- */
+        .img-placeholder {
+            width: 100%;
+            border: 1px dashed rgba(0,82,204,0.35);
+            border-radius: 6px;
+            background: rgba(0,82,204,0.04);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: rgba(0,82,204,0.6);
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 40px 20px;
+            margin: 28px 0;
+        }
+        .img-placeholder .ph-icon { font-size: 1.6rem; opacity: 0.5; }
+        .img-placeholder .ph-name { font-weight: 600; color: #0052CC; }
+        .img-placeholder .ph-hint { color: rgba(234,234,234,0.3); font-size: 0.78rem; text-transform: none; letter-spacing: 0; margin-top: 2px; }
+
+        /* -- Grids -- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 16px;
             margin: 24px 0;
         }
 
-        .principle {
-            padding: 18px 16px;
-            border: 1px solid rgba(234,234,234,0.14);
+        /* -- Cards -- */
+        .card {
+            padding: 20px 18px;
+            border: 1px solid rgba(234,234,234,0.12);
             border-radius: 4px;
             background: rgba(255,255,255,0.02);
         }
-
-        .principle-number {
-            font-size: 0.8rem;
-            color: #E8693A;
-            font-weight: 600;
-            letter-spacing: 0.1em;
+        .card-label {
+            font-size: 0.72rem;
             text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: #0052CC;
             margin-bottom: 8px;
+            font-weight: 600;
         }
-
-        .principle-title {
+        .card-title {
             font-size: 0.95rem;
             font-weight: 600;
             color: #EAEAEA;
             margin-bottom: 8px;
         }
-
-        .principle-desc {
+        .card-body {
             font-size: 0.9rem;
-            color: rgba(234,234,234,0.75);
+            color: rgba(234,234,234,0.72);
+            line-height: 1.7;
+        }
+
+        /* -- Research finding cards -- */
+        .finding-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 14px;
+            margin: 24px 0;
+        }
+        .finding {
+            padding: 18px 16px;
+            border: 1px solid rgba(234,234,234,0.1);
+            border-radius: 4px;
+            background: rgba(255,255,255,0.015);
+        }
+        .finding-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #EAEAEA;
+            margin-bottom: 8px;
+        }
+        .finding-body {
+            font-size: 0.88rem;
+            color: rgba(234,234,234,0.65);
+            line-height: 1.65;
+        }
+
+        /* -- Persona card -- */
+        .persona-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .persona {
+            border: 1px solid rgba(234,234,234,0.12);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .persona-header {
+            background: rgba(0,82,204,0.08);
+            border-bottom: 1px solid rgba(0,82,204,0.2);
+            padding: 16px 18px;
+        }
+        .persona-name { font-weight: 600; font-size: 0.95rem; color: #EAEAEA; }
+        .persona-role { font-size: 0.8rem; color: rgba(234,234,234,0.5); margin-top: 2px; }
+        .persona-body { padding: 16px 18px; }
+        .persona-quote {
+            font-style: italic;
+            font-size: 0.88rem;
+            color: rgba(234,234,234,0.65);
+            border-left: 2px solid rgba(0,82,204,0.4);
+            padding-left: 12px;
+            margin-bottom: 14px;
             line-height: 1.6;
         }
-
-        .iframe-container {
-            margin: 28px 0;
+        .persona-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .persona-col-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .persona-col-label.goals { color: #36B37E; }
+        .persona-col-label.pain  { color: #FF5630; }
+        .persona-ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .persona-ul li {
+            font-size: 0.82rem;
+            color: rgba(234,234,234,0.65);
+            padding-left: 12px;
+            position: relative;
+            line-height: 1.45;
+        }
+        .persona-ul li::before {
+            content: '\00B7';
+            position: absolute;
+            left: 2px;
+            color: rgba(234,234,234,0.3);
         }
 
+        /* -- Before / After comparison -- */
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            background: rgba(234,234,234,0.08);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 24px 0;
+        }
+        .ba-col { background: #0D0D0D; padding: 20px 18px; }
+        .ba-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .ba-label.before { color: #FF5630; }
+        .ba-label.after  { color: #36B37E; }
+        .ba-point { font-size: 0.88rem; color: rgba(234,234,234,0.72); line-height: 1.65; margin-bottom: 8px; }
+        .ba-point:last-child { margin-bottom: 0; }
+
+        /* -- Process timeline -- */
+        .process-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            background: rgba(234,234,234,0.08);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 24px 0;
+        }
+        .process-step { background: #0D0D0D; padding: 20px 16px; }
+        .process-week {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: rgba(234,234,234,0.35);
+            margin-bottom: 6px;
+        }
+        .process-phase {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0052CC;
+            margin-bottom: 10px;
+        }
+        .process-tasks { list-style: none; padding: 0; margin: 0; }
+        .process-tasks li {
+            font-size: 0.82rem;
+            color: rgba(234,234,234,0.6);
+            padding-left: 12px;
+            position: relative;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+        .process-tasks li::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 7px;
+            width: 4px; height: 4px;
+            border-radius: 50%;
+            background: #0052CC;
+        }
+
+        /* -- Outcome stat cards -- */
+        .outcome-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin: 24px 0;
+        }
+        .outcome-card {
+            padding: 20px 18px;
+            border: 1px solid rgba(234,234,234,0.12);
+            border-radius: 4px;
+            background: rgba(0,82,204,0.04);
+        }
+        .outcome-before {
+            font-size: 0.82rem;
+            color: rgba(234,234,234,0.35);
+            text-decoration: line-through;
+            margin-bottom: 2px;
+        }
+        .outcome-after {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4C9AFF;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .outcome-delta {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #36B37E;
+            margin-bottom: 8px;
+        }
+        .outcome-desc { font-size: 0.82rem; color: rgba(234,234,234,0.55); line-height: 1.5; }
+
+        /* -- Figma embed -- */
+        .iframe-container { margin: 28px 0; }
         .iframe-container iframe {
             width: 100%;
             height: 500px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(0,82,204,0.25);
+            border-radius: 4px;
         }
 
-        .feature-grid {
-            display: grid;
-            gap: 32px;
-            margin: 28px 0;
-        }
-
-        .feature {
-            display: grid;
-            gap: 16px;
-        }
-
-        .feature-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #EAEAEA;
-        }
-
-        .feature-desc {
-            font-size: 0.95rem;
-            color: rgba(234,234,234,0.85);
-            line-height: 1.8;
-        }
-
+        /* -- Scroll fade -- */
         .fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(18px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
         }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        /* -- Responsive -- */
+        @media (max-width: 960px) {
+            .layout { grid-template-columns: 1fr; }
+            .side-nav { position: static; max-height: none; }
         }
-
         @media (max-width: 720px) {
-            .page {
-                padding: 24px 18px 40px;
-            }
-
-            .hero {
-                padding: 40px 0 40px;
-            }
-
-            .section {
-                padding: 40px 0;
-            }
-
-            .iframe-container iframe {
-                height: 300px;
-            }
-
-            .hero-metrics {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .grid-2, .principle-grid {
-                grid-template-columns: 1fr;
-            }
+            .page { padding: 24px 18px 56px; }
+            .hero { padding: 40px 0 40px; }
+            .section { padding: 40px 0; }
+            .persona-pair { grid-template-columns: 1fr; }
+            .persona-cols { grid-template-columns: 1fr; }
+            .before-after { grid-template-columns: 1fr; }
+            .process-strip { grid-template-columns: 1fr 1fr; }
+            .iframe-container iframe { height: 300px; }
+            .hero-metrics { flex-direction: column; gap: 10px; }
+        }
+        @media (max-width: 480px) {
+            .process-strip { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="page">
-        <a href="index.html#selected-work" class="back-link">← Back to Portfolio</a>
+<div class="page">
 
-        <section class="hero fade-in">
-            <h1 class="hero-title">Pulse Track</h1>
-            <p class="hero-subtitle">Enterprise Sentiment Intelligence Dashboard</p>
-            <div class="hero-metrics">
-                <span>+30% task completion</span>
-                <span>-50% feedback loops</span>
-            </div>
-            <p class="hero-description">Enterprise teams were drowning in data, but still struggling to make decisions. Pulse Track transformed fragmented sentiment data into actionable insights, helping decision-makers move from days of analysis to minutes of clarity.</p>
-            <div class="hero-mockup">
-                <img src="images/pulse-track-mockup.png" alt="Pulse Track Dashboard Mockup" />
-            </div>
-        </section>
+    <a href="index.html#selected-work" class="back-link">? Back to Portfolio</a>
 
-        <section class="section fade-in">
-            <h2 class="section-title">The Breakdown</h2>
+    <div class="layout">
+        <main class="content">
+
+            <!-- ---------------------------------------
+                 HERO
+            --------------------------------------- -->
+    <section id="hero" class="hero fade-in">
+        <p class="hero-eyebrow">Case Study - Enterprise SaaS - B2B Analytics</p>
+        <h1 class="hero-title">PulseTrack</h1>
+        <p class="hero-subtitle">From a broken Power BI dashboard to a real-time sentiment intelligence platform</p>
+        <div class="hero-metrics">
+            <span>82% faster time-to-insight</span>
+            <span>105% increase in decision confidence</span>
+            <span>71% faster issue resolution</span>
+        </div>
+        <p class="hero-description">
+            NetSec Global's senior leadership was flying blind. Their Power BI dashboard showed data but offered no direction - cluttered, inconsistent, and impossible to trust. I redesigned the entire experience from scratch, turning fragmented sentiment data into a platform that tells decision-makers not just what's happening, but exactly what to do next.
+        </p>
+
+        <!-- PROJECT META -->
+        <div class="meta-strip">
+            <div class="meta-cell">
+                <div class="meta-label">Client</div>
+                <div class="meta-value">NetSec Global</div>
+            </div>
+            <div class="meta-cell">
+                <div class="meta-label">Company</div>
+                <div class="meta-value">Zensar Technologies</div>
+            </div>
+            <div class="meta-cell">
+                <div class="meta-label">My Role</div>
+                <div class="meta-value">Solo UX/UI Designer</div>
+            </div>
+            <div class="meta-cell">
+                <div class="meta-label">Team</div>
+                <div class="meta-value">2 Stakeholders - 1 PM - 4 Eng - QA</div>
+            </div>
+            <div class="meta-cell">
+                <div class="meta-label">Timeline</div>
+                <div class="meta-value">8 Weeks</div>
+            </div>
+            <div class="meta-cell">
+                <div class="meta-label">Deliverables</div>
+                <div class="meta-value">Research - Prototype - Handoff</div>
+            </div>
+        </div>
+
+        <!-- HERO IMAGE - final dashboard screenshot -->
+        <div class="image-wrapper">
+            <img src="images/pulse-track-mockup.png"
+                 alt="PulseTrack - final dashboard showing global sentiment overview, interactive map, and client table" />
+            <p class="image-caption">Final dashboard - Global Sentiment Overview with real-time client health, interactive map, and AI-generated Next Actions panel.</p>
+        </div>
+        <!--
+            IMAGE FILE: images/pulsetrack-dashboard.png
+            SOURCE: Upload your screenshot of the final PulseTrack dashboard (the one showing
+                    Global Sentiment Overview Q2 FY2, KPI cards 980/300/252/150, map, and client table)
+        -->
+    </section>
+
+
+    <!-- ---------------------------------------
+         ACT 1 - THE PROBLEM
+         Story beat: Set the scene. Why did this matter?
+    --------------------------------------- -->
+    <section id="problem" class="section fade-in">
+        <p class="section-title">Act 1 - The Problem</p>
+        <h2 class="section-heading">Senior leaders were drowning in data and still couldn't make a decision</h2>
+
+        <div class="section-content">
+            <p>Picture a Monday morning standup. Sarah, a Regional Head for Europe, knows something is wrong - sentiment has been slipping in her territory for weeks. To find out why, she opens three Power BI tabs, cross-references a spreadsheet, calls the analytics team, and waits until Thursday for a custom report. By then, the problem has already escalated.</p>
+            <p>This was the daily reality for NetSec Global's Customer Strategy Heads, Regional Sales Leaders, and Account Managers. The existing Power BI dashboard had data - lots of it. But it had no direction, no hierarchy, no trust signal, and no path to action.</p>
+        </div>
+
+        <div class="quote">The dashboard was not a tool. It was an obstacle between a problem and a decision.</div>
+
+        <div class="finding-grid">
+            <div class="finding">
+                <div class="finding-title">No early warning system</div>
+                <div class="finding-body">Regional sentiment problems escalated before leadership knew they existed. There was no way to catch a declining market before it became a crisis.</div>
+            </div>
+            <div class="finding">
+                <div class="finding-title">Fragmented data sources</div>
+                <div class="finding-body">No single source of truth. Analysts manually consolidated reports across platforms before any decision could begin.</div>
+            </div>
+            <div class="finding">
+                <div class="finding-title">Insight-heavy, action-light</div>
+                <div class="finding-body">Dashboards showed numbers but offered no next step. Leaders could see a low NPS but had no path for what to do about it.</div>
+            </div>
+            <div class="finding">
+                <div class="finding-title">Global view, no local context</div>
+                <div class="finding-body">Business heads needed country-level comparisons to allocate resources. Global averages hid the real story.</div>
+            </div>
+            <div class="finding">
+                <div class="finding-title">Visual overload and distrust</div>
+                <div class="finding-body">Clashing colors, inconsistent charts, no brand alignment. Users dreaded opening it - and when they did, they didn't trust what they saw.</div>
+            </div>
+            <div class="finding">
+                <div class="finding-title">Opaque sentiment scoring</div>
+                <div class="finding-body">Stakeholders couldn't trace how scores were calculated, leading to mistrust and hesitancy to act even when the data was correct.</div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ---------------------------------------
+         ACT 2 - RESEARCH
+         Story beat: What did I go find out?
+    --------------------------------------- -->
+    <section id="research" class="section fade-in">
+        <p class="section-title">Act 2 - Research</p>
+        <h2 class="section-heading">I needed to understand the problem before I could frame the solution</h2>
+
+        <div class="section-content">
+            <p>I ran two rounds of research in parallel - stakeholder interviews to understand the business reality, and user interviews to understand the day-to-day frustration.</p>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">Round 1 - Business Interviews <span style="color:rgba(234,234,234,0.35); font-weight:400;">2 stakeholders - 3 days</span></h3>
             <div class="section-content">
-                <p>Picture this: It's Monday morning, and Sarah, a regional manager at a Fortune 500 company, is staring at her computer screen. She knows something's wrong—customer sentiment in her region has been trending downward for weeks. But to find out why, she has to:</p>
-                <p>Open three different dashboards. Cross-reference data from spreadsheets. Call the analytics team for custom reports. By the time she has answers, it's Thursday afternoon. The problem has already escalated.</p>
-                <p>This wasn't just inefficiency. It was a systemic failure. Enterprise teams managed millions of sentiment data points across regions, products, and teams. Data came from surveys, social media, customer support, and internal feedback systems. But speed mattered—competitor launches, satisfaction dips, viral complaints needed immediate attention.</p>
-                <p>Decision-makers depended on clear, timely insights. Instead, they got fragmented tools: spreadsheets for manual tracking, legacy dashboards for historical data, separate systems for different regions. Every manager maintained custom reports. Most insights were reactive—discovered after problems cascaded.</p>
-                <p>The result? Cognitive overload. Slow decisions. Low adoption. Trust eroded. Teams avoided dashboards they couldn't understand in under 60 seconds.</p>
-                <div class="quote">Data existed, but it was inactionable. Teams had information paralysis, not insight.</div>
+                <p>Talking to decision-makers surfaced the business cost of the problem. Dashboards were full of data but never drove a single action. Sentiment scoring was treated as a black box - leaders couldn't explain the numbers to their teams, so they stopped using them.</p>
             </div>
-        </section>
+        </div>
 
-        <section class="section fade-in">
-            <h2 class="section-title">My Role</h2>
+        <div class="subsection">
+            <h3 class="subsection-title">Round 2 - User Interviews <span style="color:rgba(234,234,234,0.35); font-weight:400;">7 users - 3 days</span></h3>
             <div class="section-content">
-                <p>I owned the complete user experience: information architecture, interaction design, UI systems, and accessibility. This wasn't just "designing screens"—I shaped how enterprise teams would interact with complex data at scale.</p>
-                <p>The scope was end-to-end. I collaborated with product managers on strategy, engineers on feasibility, data teams on pipelines, and leadership on vision. But the decisions were mine: what to prioritize, what to simplify, what to eliminate.</p>
-                <p>This was my first enterprise-scale product. I learned that at this level, design isn't about pixels—it's about systems that scale to millions of users and billions of data points.</p>
+                <p>The user sessions revealed something the business interviews hadn't: the problem wasn't just strategic, it was emotional. People felt fatigued, confused, and isolated - doing analysis alone with tools that gave them no support. Three things stood out immediately.</p>
             </div>
-        </section>
+        </div>
 
-        <section class="section fade-in">
-            <h2 class="section-title">Discovery</h2>
-            <div class="section-content">
-                <p>I started by listening. Really listening. Not to what users said they wanted, but to what their workflows revealed.</p>
-                <p>I conducted interviews with 8 decision-makers across regions. I observed them in their natural habitat—morning briefings, crisis meetings, late-night data dives. I tested current dashboards and watched users struggle. I mapped data flows with the analytics team.</p>
-                <p>What emerged wasn't obvious. Users rarely explored dashboards—they searched for specific answers. Adoption correlated with team size, not dashboard quality. Managers preferred human briefings over self-service tools. Filters were powerful, but 30% of users couldn't use them correctly.</p>
-                <p>These observations led to four critical insights:</p>
-                <div class="subsection">
-                    <h3 class="subsection-title">Users Need Insights, Not Raw Data</h3>
-                    <p>They wanted conclusions, not datasets. "Show me the problem" beat "show me everything" every time.</p>
-                </div>
-                <div class="subsection">
-                    <h3 class="subsection-title">Users Think in Questions</h3>
-                    <p>"Is sentiment declining?" not "Show me time-series data." This reframed the entire interaction model.</p>
-                </div>
-                <div class="subsection">
-                    <h3 class="subsection-title">Filters Are Powerful But Complex</h3>
-                    <p>Most users needed simple paths, not all options. We had to design for the 80%, enable the 20%.</p>
-                </div>
-                <div class="subsection">
-                    <h3 class="subsection-title">Trust Is the Gating Factor</h3>
-                    <p>Users avoided tools they didn't immediately understand. Simplicity wasn't nice-to-have—it was required.</p>
-                </div>
+        <div class="image-wrapper">
+            <img src="images/pulsetrack-research-users.png"
+                 alt="User interview insights - visual overload, missing filters, no collaboration, lack of context" />
+            <p class="image-caption">User interview insights - 7 participants, 3 days. Fatigue, isolation, and lack of context were the recurring themes.</p>
+        </div>
+        <!--
+            IMAGE FILE: images/pulsetrack-research-users.png
+            SOURCE: Your "Research 2 - User Interviews Insights" case study slide
+        -->
+
+        <div class="grid-3" style="margin-top:24px;">
+            <div class="card">
+                <div class="card-label">Finding 01</div>
+                <div class="card-title">Visual overload caused fatigue</div>
+                <div class="card-body">Strong colors and lack of hierarchy left users exhausted. People avoided the dashboard unless absolutely necessary.</div>
             </div>
-        </section>
-
-        <section class="section fade-in">
-            <h2 class="section-title">Reframing the Problem</h2>
-            <div class="section-content">
-                <p>Initially, this looked like a data visualization problem. We had charts, graphs, filters—why weren't they working?</p>
-                <p>But the research revealed something deeper. This was a decision-making problem. Users didn't need more data—they needed faster decisions. They didn't need complex tools—they needed trustworthy guidance.</p>
-                <p>This shift changed everything. Instead of "How do we display data?", we asked: "How might we help enterprise teams understand and act on sentiment data in under 60 seconds, without overwhelming them with options?"</p>
-                <p>This framing established speed and simplicity as constraints, not just goals. It forced us to prioritize ruthlessly.</p>
+            <div class="card">
+                <div class="card-label">Finding 02</div>
+                <div class="card-title">No filters meant no ownership</div>
+                <div class="card-body">Everyone saw the same undifferentiated wall of data. Users couldn't create a view relevant to their region or role.</div>
             </div>
-        </section>
-
-        <section class="section fade-in">
-            <h2 class="section-title">Design Principles</h2>
-            <div class="principle-grid">
-                <div class="principle">
-                    <div class="principle-number">01</div>
-                    <div class="principle-title">Reduce Cognitive Load</div>
-                    <div class="principle-desc">Show key insights first. Hide complexity until needed. Prioritize signal over noise. Every screen should reduce, not add, mental effort.</div>
-                </div>
-                <div class="principle">
-                    <div class="principle-number">02</div>
-                    <div class="principle-title">Prioritize Action</div>
-                    <div class="principle-desc">Design for decisions. Every interaction should answer a question or enable an action. Data without direction is just decoration.</div>
-                </div>
-                <div class="principle">
-                    <div class="principle-number">03</div>
-                    <div class="principle-title">System Over Screens</div>
-                    <div class="principle-desc">Build reusable patterns that scale. Consistency across regions builds trust and reduces learning. Think system, not page.</div>
-                </div>
-                <div class="principle">
-                    <div class="principle-number">04</div>
-                    <div class="principle-title">Design for Scale</div>
-                    <div class="principle-desc">Support millions of data points, multiple regions. Patterns must not break under complexity. Enterprise means enterprise scale.</div>
-                </div>
+            <div class="card">
+                <div class="card-label">Finding 03</div>
+                <div class="card-title">No collaboration features</div>
+                <div class="card-body">Users couldn't tag teammates or comment on findings. Shared analysis happened over email chains, not inside the tool.</div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section fade-in">
-            <h2 class="section-title">The Evolution</h2>
-            <div class="section-content">
-                <p>The solution didn't emerge fully formed. It evolved through three iterations, each teaching us something critical about enterprise users and complex data.</p>
-            </div>
 
-            <div class="subsection">
-                <h3 class="subsection-title">Iteration 1: The Kitchen Sink</h3>
-                <div class="section-content">
-                    <p>We believed flexibility was key. So we built a comprehensive dashboard with every metric, multiple filters, and custom report builders. Power users would love it, we thought.</p>
-                    <p>Usability testing shattered that assumption. 70% of users felt overwhelmed. They ignored features. Adoption was poor. Sessions lasted 15+ minutes—not the 60 seconds we needed.</p>
-                    <p>The lesson? We solved for power users, not primary users. We added options instead of reducing choices. This iteration taught us that enterprise design requires constraint, not capability.</p>
-                </div>
-                <div class="image-wrapper">
-                    <img src="images/iteration-1.png" alt="Iteration 1 - Kitchen Sink Dashboard" />
-                </div>
-                <p class="image-caption">Over-featured dashboard that overwhelmed users—our first attempt at "comprehensive."</p>
-            </div>
+    <!-- ---------------------------------------
+         ACT 3 - WHO WE'RE DESIGNING FOR
+         Story beat: Put a human face on the problem
+    --------------------------------------- -->
+    <section id="design" class="section fade-in">
+        <p class="section-title">Act 3 - Who We're Designing For</p>
+        <h2 class="section-heading">Two users, same broken tool, completely different needs</h2>
 
-            <div class="subsection">
-                <h3 class="subsection-title">Iteration 2: The Guided Path</h3>
-                <div class="section-content">
-                    <p>We pivoted to guidance. Instead of blank slates, we built pre-built questions: "Is sentiment declining?" "What's changing?" "Which regions need attention?" Users selected a question, got an answer, could drill down.</p>
-                    <p>Results improved dramatically. Adoption increased 40%. Users felt guided. Average session time dropped to 3 minutes. Progressive disclosure worked.</p>
-                    <p>But challenges remained. Advanced users wanted more flexibility. Regional managers needed custom views. We had solved simplicity, but not power.</p>
-                </div>
-                <div class="image-wrapper">
-                    <img src="images/iteration-2.png" alt="Iteration 2 - Guided Dashboard" />
-                </div>
-                <p class="image-caption">Guided approach improved adoption but limited power users—our second attempt at balance.</p>
-            </div>
+        <div class="section-content">
+            <p>The research pointed to two primary users. Their goals and mental models were entirely different - but both were being failed by the same system.</p>
+        </div>
 
-            <div class="subsection">
-                <h3 class="subsection-title">Iteration 3: The Hybrid System</h3>
-                <div class="section-content">
-                    <p>We combined both approaches. Quick insights by default. Advanced filters on-demand. Smart suggestions based on data patterns. AI insights that explained, not just alerted.</p>
-                    <p>This worked because it satisfied both beginner and advanced users. Reduced cognitive load for 80%, enabled power for 20%. Adoption hit 85%. The hybrid approach balanced simplicity and capability.</p>
-                    <p>The key insight? Don't choose between simple and powerful—design systems that offer both, intelligently.</p>
-                </div>
-                <div class="image-wrapper">
-                    <img src="images/iteration-3.png" alt="Iteration 3 - Final Unified Dashboard" />
-                </div>
-                <p class="image-caption">Final hybrid approach balancing simplicity and power—our evolved solution.</p>
-            </div>
-        </section>
+        <div class="image-wrapper">
+            <img src="images/pulsetrack-personas.png"
+                 alt="Personas - Maria Alvarez (Regional Head) and Daniel Park (Data Analyst)" />
+            <p class="image-caption">Maria needs speed and synthesis. Daniel needs depth and flexibility. The design had to serve both.</p>
+        </div>
+        <!--
+            IMAGE FILE: images/pulsetrack-personas.png
+            SOURCE: Your "Research 4 - Personas" case study slide (Maria + Daniel cards)
+        -->
 
-        <section class="section fade-in">
-            <h2 class="section-title">The Solution</h2>
-            <div class="section-content">
-                <p>Pulse Track emerged as a system designed for speed and clarity. Every feature connects back to our reframed problem: help teams understand and act in under 60 seconds.</p>
-            </div>
-
-            <div class="feature-grid">
-                <div class="feature">
-                    <h3 class="feature-title">Unified Dashboard</h3>
-                    <p class="feature-desc">Single view consolidating all sentiment data from all regions. Top-level insights displayed prominently. Hierarchy through visual weight, not typography. This solved the fragmentation problem—users no longer hunted across tools.</p>
-                    <div class="image-wrapper">
-                        <img src="images/dashboard-overview.png" alt="Unified Dashboard" />
+        <div class="persona-pair">
+            <div class="persona">
+                <div class="persona-header">
+                    <div class="persona-name">Maria Alvarez</div>
+                    <div class="persona-role">Regional Head, Europe - Madrid - 42</div>
+                </div>
+                <div class="persona-body">
+                    <p class="persona-quote">"I need to quickly understand where we're excelling and where we're falling behind across all European markets."</p>
+                    <div class="persona-cols">
+                        <div>
+                            <div class="persona-col-label goals">Goals</div>
+                            <ul class="persona-ul">
+                                <li>Quick snapshots of regional performance</li>
+                                <li>Spot trends before they escalate</li>
+                                <li>Report synthesized insights to global leadership</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="persona-col-label pain">Pain Points</div>
+                            <ul class="persona-ul">
+                                <li>Too much time consolidating reports</li>
+                                <li>Inconsistent metrics across country teams</li>
+                                <li>Hard to prioritize which markets need attention</li>
+                            </ul>
+                        </div>
                     </div>
-                    <p class="image-caption">Consolidated view with global sentiment metrics and drill-down capability.</p>
-                </div>
-
-                <div class="feature">
-                    <h3 class="feature-title">Smart Filters & Questions</h3>
-                    <p class="feature-desc">Pre-built question templates alongside advanced filters. Autocomplete and smart defaults. This addressed the insight gap—users got answers, not just data. The question-based approach matched how users actually thought.</p>
-                    <div class="image-wrapper">
-                        <img src="images/filters.png" alt="Smart Filters UI" />
-                    </div>
-                    <p class="image-caption">Guided questions reduce cognitive load; advanced filters available on demand.</p>
-                </div>
-
-                <div class="feature">
-                    <h3 class="feature-title">Insight-Driven Visuals</h3>
-                    <p class="feature-desc">Charts highlight anomalies automatically. Color coding for severity. Trend indicators. Colorblind-tested. This solved the action problem—users saw what mattered immediately, not after analysis.</p>
-                    <div class="image-wrapper">
-                        <img src="images/data-viz.png" alt="Data Visualization" />
-                    </div>
-                    <p class="image-caption">Visual hierarchy and color coding highlight key insights automatically.</p>
-                </div>
-
-                <div class="feature">
-                    <h3 class="feature-title">AI Insights Layer</h3>
-                    <p class="feature-desc">Automated suggestions with explanations: "Sentiment dropped 15% in North region—likely due to recent pricing change." This built trust through transparency, not black boxes. Users understood why, not just what.</p>
-                    <div class="image-wrapper">
-                        <img src="images/ai-insights.png" alt="AI Insights Panel" />
-                    </div>
-                    <p class="image-caption">AI-generated insights with clear reasoning and actionable next steps.</p>
-                </div>
-
-                <div class="feature">
-                    <h3 class="feature-title">Responsive Everywhere</h3>
-                    <p class="feature-desc">Optimized for desktop, tablet, mobile. No feature loss—just reordered priorities. This ensured the system worked in real workflows, not just at desks. Mobile meant commute briefings, quick checks, immediate alerts.</p>
-                    <div class="image-wrapper">
-                        <img src="images/dashboard-overview.png" alt="Mobile View" />
-                    </div>
-                    <p class="image-caption">Same system, optimized for every screen size with no feature loss.</p>
                 </div>
             </div>
-        </section>
 
-        <section class="section fade-in">
-            <h2 class="section-title">Live Prototype</h2>
+            <div class="persona">
+                <div class="persona-header">
+                    <div class="persona-name">Daniel Park</div>
+                    <div class="persona-role">Data Analyst, Americas - Chicago - 31</div>
+                </div>
+                <div class="persona-body">
+                    <p class="persona-quote">"My job is to surface the hidden insights in our data and connect them to measurable business outcomes."</p>
+                    <div class="persona-cols">
+                        <div>
+                            <div class="persona-col-label goals">Goals</div>
+                            <ul class="persona-ul">
+                                <li>Deep-dive into sentiment patterns</li>
+                                <li>Granular reports per product line</li>
+                                <li>Correlate sentiment with behavioral data</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="persona-col-label pain">Pain Points</div>
+                            <ul class="persona-ul">
+                                <li>Cumbersome data export and manipulation</li>
+                                <li>Limited filtering capabilities</li>
+                                <li>Disconnected systems requiring manual work</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Journey -->
+        <div class="subsection">
+            <h3 class="subsection-title">User Journey - From login to task completion</h3>
+            <div class="section-content">
+                <p>I mapped how both personas navigate PulseTrack end-to-end - where they stall, what they feel, and where the tool lets them down most. This became the blueprint for prioritising what to fix first.</p>
+            </div>
+            <div class="image-wrapper">
+                <img src="images/pulsetrack-user-journey.png"
+                     alt="User journey map - Regional Head vs Data Analyst, from login through to insight export" />
+                <p class="image-caption">User journey across both personas - pain points in red, design opportunities highlighted at each stage.</p>
+            </div>
+            <!--
+                IMAGE FILE: images/pulsetrack-user-journey.png
+                SOURCE: Your "Research 5 - User Journey" case study slide (the table with
+                        Regional Head Europe / Data Analyst Americas columns)
+            -->
+        </div>
+    </section>
+
+
+    <!-- ---------------------------------------
+         ACT 4 - OPPORTUNITIES
+         Story beat: What we decided to go after
+    --------------------------------------- -->
+    <section id="opportunities" class="section fade-in">
+        <p class="section-title">Act 4 - Opportunities</p>
+        <h2 class="section-heading">Five specific things the research told us to fix</h2>
+
+        <div class="section-content">
+            <p>The research didn't just reveal problems - it pointed directly at the design directions that would solve them. I distilled everything into five prioritised opportunities before touching a single wireframe.</p>
+        </div>
+
+
+        <div class="grid-2" style="margin-top: 0;">
+            <div class="card">
+                <div class="card-label">Opportunity 01</div>
+                <div class="card-title">Make the dashboard feel lighter</div>
+                <div class="card-body">Reduce density, surface the most critical metrics first, and let users find what they need in under 10 seconds.</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Opportunity 02</div>
+                <div class="card-title">Bring filters forward</div>
+                <div class="card-body">Filters existed but were buried. Bring them into the primary layout so personalisation is a first-class action, not an afterthought.</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Opportunity 03</div>
+                <div class="card-title">Clarify sentiment icons</div>
+                <div class="card-body">Users weren't sure what the icons meant at first glance. Clear labels and consistent colour coding would build trust immediately.</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Opportunity 04</div>
+                <div class="card-title">Build a unified visual language</div>
+                <div class="card-body">Charts changed style by region, which confused users and eroded confidence. A single design system would fix this across the board.</div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ---------------------------------------
+         ACT 5 - THE PROCESS
+         Story beat: How did I work?
+    --------------------------------------- -->
+    <section id="process" class="section fade-in">
+        <p class="section-title">Act 5 - The Process</p>
+        <h2 class="section-heading">8 weeks, structured to move fast without skipping validation</h2>
+
+        <div class="section-content">
+            <p>I ran the project as a four-phase sprint. The critical decision was to bring real users in at week four - early enough to catch direction problems before they became expensive to fix, but after I had a tangible prototype to test against.</p>
+        </div>
+
+        <div class="image-wrapper">
+            <img src="images/pulsetrack-timeline.png"
+                 alt="8-week UI/UX design process timeline - Define, Design, Validate, Refine, Deploy Prep" />
+            <p class="image-caption">8-week sprint - define ? design ? validate ? deploy. Phased approach enabled continuous feedback loops without compromising delivery.</p>
+        </div>
+        <!--
+            IMAGE FILE: images/pulsetrack-timeline.png
+            SOURCE: Your "Timeline - How We Got There" slide with the Gantt chart
+        -->
+
+        <div class="process-strip">
+            <div class="process-step">
+                <div class="process-week">Weeks 1-2</div>
+                <div class="process-phase">Define</div>
+                <ul class="process-tasks">
+                    <li>Stakeholder interviews</li>
+                    <li>Audit legacy dashboard</li>
+                    <li>Set project goals</li>
+                </ul>
+            </div>
+            <div class="process-step">
+                <div class="process-week">Weeks 2-4</div>
+                <div class="process-phase">Design</div>
+                <ul class="process-tasks">
+                    <li>User flow mapping</li>
+                    <li>High-fidelity wireframes</li>
+                    <li>Design system creation</li>
+                </ul>
+            </div>
+            <div class="process-step">
+                <div class="process-week">Weeks 4-6</div>
+                <div class="process-phase">Validate</div>
+                <ul class="process-tasks">
+                    <li>3 rounds of usability testing</li>
+                    <li>8 participants - 18 tasks</li>
+                    <li>Iteration on findings</li>
+                </ul>
+            </div>
+            <div class="process-step">
+                <div class="process-week">Weeks 6-8</div>
+                <div class="process-phase">Deploy Prep</div>
+                <ul class="process-tasks">
+                    <li>Polish and edge cases</li>
+                    <li>Dev handoff package</li>
+                    <li>QA checklist + docs</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- User Flow -->
+        <div class="subsection">
+            <h3 class="subsection-title">User Flow - Comparing Sentiment Across Regions</h3>
+            <div class="section-content">
+                <p>Before drawing a single screen, I mapped the primary user flow for the most critical task: comparing regional sentiment and exporting an insight. This gave the team a shared reference and prevented scope creep during prototyping.</p>
+            </div>
+            <div class="image-wrapper">
+                <img src="images/pulsetrack-user-flow.png"
+                     alt="User flow - Login ? Dashboard ? Region Select ? Comparison ? Insight Export" />
+                <p class="image-caption">Primary user flow - Login ? Global dashboard ? Region select ? Side-by-side comparison ? Report export.</p>
+            </div>
+            <!--
+                IMAGE FILE: images/pulsetrack-user-flow.png
+                SOURCE: Your "Research 6 - Personas / User Flow" slide (the flow diagram
+                        showing Login ? Dashboard ? Region Select ? Comparison ? Insight Export)
+            -->
+        </div>
+    </section>
+
+
+    <!-- ---------------------------------------
+         ACT 6 - PROTOTYPING & ITERATIONS
+         Story beat: Show the work evolving
+    --------------------------------------- -->
+    <section id="prototyping" class="section fade-in">
+        <p class="section-title">Act 6 - Prototyping & Iterations</p>
+        <h2 class="section-heading">I went straight to high-fidelity - then let testing reshape it</h2>
+
+        <div class="section-content">
+            <p>Because we already had solid research data, I skipped low-fidelity sketches and moved directly to clickable, high-fidelity prototypes. This accelerated the design process and let stakeholders react to something real in the first review session - not a sketch that required imagination.</p>
+        </div>
+
+        <!-- -- ITERATION PLACEHOLDER SLOTS -- -->
+        <!-- These are clearly labelled empty slots for your iteration images.
+             Replace each .img-placeholder block with an .image-wrapper + <img> when ready. -->
+
+        <div class="subsection">
+            <h3 class="subsection-title">Iteration 1 - First Draft</h3>
+            <div class="section-content">
+                <p>The first pass focused on consolidating all sentiment data into a single view. We introduced the KPI card strip at the top and the interactive map below. Initial testing showed users could locate global numbers quickly - but couldn't understand what to do with them. The hierarchy was flat; everything looked equally important.</p>
+            </div>
+
+            <div class="image-wrapper">
+                <img src="images/pulsetrack-iteration-1.png"
+                     alt="PulseTrack iteration 1 - first draft dashboard with flat initial layout" />
+                <p class="image-caption">Iteration 1 - first draft screenshot showing the original dashboard layout before visual hierarchy was added.</p>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">Iteration 2 - Introducing Visual Hierarchy</h3>
+            <div class="section-content">
+                <p>Testing feedback from round one was clear: users needed to know what was critical at a glance, without scanning every card. I introduced colour-coded sentiment states (green / grey / amber / red), timestamp badges on every data block, and a bolded summary panel that surfaced the most important finding in plain language. Adoption of the map increased significantly.</p>
+            </div>
+
+            <div class="image-wrapper">
+                <img src="images/pulsetrack-iteration-2.png"
+                     alt="PulseTrack iteration 2 - dashboard with colour-coded KPIs and clearer hierarchy" />
+                <p class="image-caption">Iteration 2 screenshot showing the improved visual hierarchy with colour-coded sentiment states and clearer summary panels.</p>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">Iteration 3 - Adding the Next Actions Panel</h3>
+            <div class="section-content">
+                <p>The most significant design shift in the project. Users understood what was happening - but still didn't know what to do. In round-three testing, participants consistently said "OK, so what now?" after reviewing the data. I added an AI-generated "Next Actions" section at the bottom of every view, with prioritised steps like "Escalate: Seattle-based finance client flagged as Critical." This transformed PulseTrack from a reporting tool into an action platform.</p>
+            </div>
+
+            <div class="image-wrapper">
+                <img src="images/pulsetrack-iteration-3.png"
+                     alt="PulseTrack iteration 3 - final dashboard with Next Actions panel" />
+                <p class="image-caption">Iteration 3 screenshot showing the final dashboard with the Next Actions panel added for immediate decision support.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ---------------------------------------
+         ACT 7 - USABILITY TESTING
+         Story beat: Validation evidence
+    --------------------------------------- -->
+    <section id="testing" class="section fade-in">
+        <p class="section-title">Act 7 - Usability Testing</p>
+        <h2 class="section-heading">Three rounds, 8 participants, 18 tasks - each round sharpened the design</h2>
+
+        <div class="grid-3">
+            <div class="card" style="text-align:center;">
+                <div style="font-size:2rem; font-weight:600; color:#4C9AFF;">3</div>
+                <div class="card-body">Testing Rounds</div>
+            </div>
+            <div class="card" style="text-align:center;">
+                <div style="font-size:2rem; font-weight:600; color:#4C9AFF;">8</div>
+                <div class="card-body">Participants</div>
+            </div>
+            <div class="card" style="text-align:center;">
+                <div style="font-size:2rem; font-weight:600; color:#4C9AFF;">18</div>
+                <div class="card-body">Tasks Evaluated</div>
+            </div>
+        </div>
+
+        <!-- Testing slides - before/after KPI cards -->
+        <div class="image-wrapper">
+            <img src="images/pulsetrack-testing-kpi.png"
+                 alt="Usability testing - before and after KPI cards showing colour coding and timestamp additions" />
+            <p class="image-caption">Testing round 2 finding - KPI cards lacked visual hierarchy. After: colour coding, dot indicators, and timestamps added.</p>
+        </div>
+        <!--
+            IMAGE FILE: images/pulsetrack-testing-kpi.png
+            SOURCE: Your "Prototyping 3 - Testing / Usability Testing" slide (the before/after
+                    showing the Global Sentiment Overview KPI card section)
+        -->
+
+        <!-- Before / After - KPI section -->
+        <div class="before-after">
+            <div class="ba-col">
+                <div class="ba-label before">Before</div>
+                <div class="ba-point">All sentiment categories looked identical - no visual weight difference between Critical and Satisfied.</div>
+                <div class="ba-point">No timestamps, so users didn't know if they were looking at live data or last week's report.</div>
+                <div class="ba-point">Summary text was plain - no emphasis on the findings that needed immediate attention.</div>
+            </div>
+            <div class="ba-col">
+                <div class="ba-label after">After</div>
+                <div class="ba-point">Introduced green / grey / amber / red coding with dot indicators. Client health readable in under a second.</div>
+                <div class="ba-point">Added persistent "Last updated: [time]" labels to every data block - trust through transparency.</div>
+                <div class="ba-point">Enhanced summary with bolded, colour-coded keywords that surface the critical finding immediately.</div>
+            </div>
+        </div>
+
+        <!-- Testing slides - before/after map section -->
+        <div class="image-wrapper">
+            <img src="images/pulsetrack-testing-map.png"
+                 alt="Usability testing - before and after map section showing improved client dot labels and filter strip" />
+            <p class="image-caption">Testing round 3 finding - map filters were invisible. After: filter strip surfaced above the map with clear labels and reset action.</p>
+        </div>
+        <!--
+            IMAGE FILE: images/pulsetrack-testing-map.png
+            SOURCE: Your "Prototyping 4 - Testing / Usability Testing" slide (the before/after
+                    showing the map section with client dots)
+        -->
+
+        <!-- Testing - stakeholder team view -->
+        <div class="subsection">
+            <h3 class="subsection-title">Stakeholder view - email addresses inline</h3>
+            <div class="section-content">
+                <p>A small but high-impact fix from round-two testing. Users had to leave PulseTrack to find a colleague's email whenever they wanted to loop someone in on a finding. Adding email addresses directly below names in the team view removed this friction entirely.</p>
+            </div>
+            <div class="image-wrapper">
+                <img src="images/pulsetrack-testing-team.png"
+                     alt="Before and after - stakeholder team view adding email addresses inline under names" />
+                <p class="image-caption">Before: names and roles only. After: email addresses inline. One click to reach anyone without breaking your workflow.</p>
+            </div>
+            <!--
+                IMAGE FILE: images/pulsetrack-testing-team.png
+                SOURCE: Your "Prototyping 5 - Testing / Usability Testing" slide (the before/after
+                        showing the Key Stakeholders & Internal Team panel)
+            -->
+        </div>
+
+        <div class="quote">Regional comparison features were particularly effective - nearly all users could identify regional differences quickly, without any onboarding or guidance.</div>
+    </section>
+
+
+    <!-- ---------------------------------------
+         ACT 8 - THE SOLUTION
+         Story beat: Show the final product
+    --------------------------------------- -->
+    <section id="solution" class="section fade-in">
+        <p class="section-title">Act 8 - The Solution</p>
+        <h2 class="section-heading">PulseTrack - a platform that tells you what's happening and what to do next</h2>
+
+        <div class="section-content">
+            <p>The final design is built around one principle: every screen should reduce the time between a signal and a decision. Here are the five design choices that achieved that.</p>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">1. Colour-coded sentiment states</h3>
+            <div class="section-content">
+                <p>Satisfied (green), Passive (grey), Dissatisfied (amber), Critical (red). Applied consistently across KPI cards, the client table, and the map. A manager can assess the health of 1,682 clients at a glance - no reading required.</p>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">2. Interactive regional map</h3>
+            <div class="section-content">
+                <p>Replaced static charts with a live map showing client locations as colour-coded dots. Clicking any dot surfaces that client's sentiment score, last update, and direct action link. Regional heads can now spot geographic patterns that were invisible in tabular data.</p>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">3. Filterable client table</h3>
+            <div class="section-content">
+                <p>Five filter dimensions - Country, Region, Quarter, Client Tier, Sentiment - always visible above the table. No buried menus, no modal dialogs. Advanced users like Daniel can build a precise view in two clicks.</p>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">4. AI-generated summary + Next Actions panel</h3>
+            <div class="section-content">
+                <p>The single biggest shift from the original tool. Every view ends with a plain-language summary of what the data means, followed by a prioritised list of specific next actions: which client to escalate, which region needs outreach, which segment shows testimonial potential. The platform moved from passive report to active advisor.</p>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">5. Persistent data freshness signals</h3>
+            <div class="section-content">
+                <p>"Last updated: May 14, 2025" appears on every section. A small detail that restored trust - users stopped second-guessing whether the data was current and started acting on it.</p>
+            </div>
+        </div>
+
+        <!-- Live Figma Prototype -->
+        <div class="subsection">
+            <h3 class="subsection-title">Interactive Prototype</h3>
             <div class="iframe-container">
-                <iframe 
-                  style="border: 1px solid rgba(0, 0, 0, 0.1);" 
-                  width="800" 
-                  height="450" 
-                  src="https://embed.figma.com/proto/oi2haCGUEsuXqV7CWk0jSf/Govind-UIUX-Design-File-2024?node-id=4641-6917&viewport=1078%2C286%2C0.07&scaling=scale-down&content-scaling=fixed&starting-point-node-id=4641%3A6917&page-id=4588%3A1316&embed-host=share" 
-                  allowfullscreen>
+                <iframe
+                    src="https://embed.figma.com/proto/oi2haCGUEsuXqV7CWk0jSf/Govind-UIUX-Design-File-2024?node-id=4641-6917&viewport=1078%2C286%2C0.07&scaling=scale-down&content-scaling=fixed&starting-point-node-id=4641%3A6917&page-id=4588%3A1316&embed-host=share"
+                    allowfullscreen>
                 </iframe>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section fade-in">
-            <h2 class="section-title">Impact</h2>
-            <div class="grid grid-2">
-                <div class="card">
-                    <div class="card-title">+30% Task Completion</div>
-                    <div class="card-content">Users completed analysis tasks 30% faster. Why? Clear insights eliminated hunting. Decisions moved from hours to minutes.</div>
-                </div>
-                <div class="card">
-                    <div class="card-title">-50% Feedback Loops</div>
-                    <div class="card-content">Time from insight to action halved. Why? Action-oriented design meant users didn't just see problems—they knew next steps.</div>
-                </div>
-                <div class="card">
-                    <div class="card-title">85% Adoption</div>
-                    <div class="card-content">In 6 months, 85% of target users were active monthly. Previous tool: 22%. Why? Trust built through simplicity and reliability.</div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Scaled Globally</div>
-                    <div class="card-content">System now handles 3 regions, 50M+ data points/day. Why? Patterns designed for scale from day one.</div>
-                </div>
+
+    <!-- ---------------------------------------
+         ACT 9 - DEV HANDOFF
+         Story beat: How it got built
+    --------------------------------------- -->
+    <section id="handoff" class="section fade-in">
+        <p class="section-title">Act 9 - Dev Handoff</p>
+        <h2 class="section-heading">Structured for a frictionless build - no ambiguity, no back-and-forth</h2>
+
+        <div class="section-content">
+            <p>The 8-week sprint was designed to end with a handoff package that engineers could build from directly, without needing a single clarification call. I delivered five things.</p>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-label">Handoff 01</div>
+                <div class="card-title">Redline Specs</div>
+                <div class="card-body">Annotated spacing, padding, font sizes, and colour values for every component state.</div>
             </div>
-        </section>
+            <div class="card">
+                <div class="card-label">Handoff 02</div>
+                <div class="card-title">Design Tokens</div>
+                <div class="card-body">A shared token set for colours, typography, and spacing - ensuring consistency between Figma and code.</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Handoff 03</div>
+                <div class="card-title">Component Library</div>
+                <div class="card-body">Reusable Figma components matching the final UI, with all states documented: default, hover, active, empty, error.</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Handoff 04</div>
+                <div class="card-title">Interactive Prototypes</div>
+                <div class="card-body">Clickable Figma prototype covering the five primary user flows, used for QA sign-off before launch.</div>
+            </div>
+        </div>
 
-        <section class="section fade-in">
-            <h2 class="section-title">Tradeoffs</h2>
+        <div class="image-wrapper">
+            <img src="images/pulsetrack-handoff.png"
+                 alt="Dev handoff - annotated final design with redline specs visible in Figma" />
+            <p class="image-caption">Dev handoff view in Figma - redline specs, token references, and component states documented for every screen.</p>
+        </div>
+        <!--
+            IMAGE FILE: images/pulsetrack-handoff.png
+            SOURCE: Your "Dev Handoff" slide (the annotated final dashboard screenshot
+                    with the spec callouts visible)
+        -->
+    </section>
+
+
+    <!-- ---------------------------------------
+         ACT 10 - OUTCOMES
+         Story beat: Did it work?
+    --------------------------------------- -->
+    <section id="outcomes" class="section fade-in">
+        <p class="section-title">Act 10 - Outcomes</p>
+        <h2 class="section-heading">The numbers after launch - and the feedback that mattered most</h2>
+
+
+        <div class="outcome-grid">
+            <div class="outcome-card">
+                <div class="outcome-before">18 min</div>
+                <div class="outcome-after">3.2 min</div>
+                <div class="outcome-delta">? 82% reduction</div>
+                <div class="outcome-desc">Time for regional heads to identify a critical sentiment trend from login.</div>
+            </div>
+            <div class="outcome-card">
+                <div class="outcome-before">24 hours</div>
+                <div class="outcome-after">4 hrs</div>
+                <div class="outcome-delta">? 83% reduction</div>
+                <div class="outcome-desc">Time to align global teams on sentiment insights and agree on a plan.</div>
+            </div>
+            <div class="outcome-card">
+                <div class="outcome-before">42%</div>
+                <div class="outcome-after">86%</div>
+                <div class="outcome-delta">? 105% increase</div>
+                <div class="outcome-desc">Teams reporting high confidence in sentiment data when making decisions.</div>
+            </div>
+            <div class="outcome-card">
+                <div class="outcome-before">12 days</div>
+                <div class="outcome-after">3.5 days</div>
+                <div class="outcome-delta">? 71% faster</div>
+                <div class="outcome-desc">Time to detect and resolve significant customer satisfaction issues.</div>
+            </div>
+        </div>
+
+        <!-- Appreciation / Future steps image -->
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-label">Client feedback</div>
+                <div class="card-body">"PulseTrack has transformed how we understand customer sentiment across regions. Our teams are more coordinated and responsive than ever before."<br><br><strong style="color:#EAEAEA;">Sarah Chen</strong> - Global CX Director, TechNova Inc.</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Client feedback</div>
+                <div class="card-body">"The ability to quickly compare sentiment across markets has revealed patterns we never saw before. We've already implemented changes that improved our global NPS by 12 points."<br><br><strong style="color:#EAEAEA;">Marcus Williams</strong> - VP Customer Success, Quantum Systems</div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ---------------------------------------
+         ACT 11 - REFLECTION
+         Story beat: What I learned
+    --------------------------------------- -->
+    <section id="reflection" class="section fade-in">
+        <p class="section-title">Act 11 - Reflection</p>
+        <h2 class="section-heading">What I would do differently, and what I'll carry forward</h2>
+
+        <div class="section-content">
+            <p>The biggest shift in this project was not visual - it was strategic. The old dashboard gave people data. The new one gives them direction. That difference only becomes clear when you spend time with the people who use the tool every day.</p>
+            <p>Working as a solo designer on a compressed 8-week sprint meant I had to make quick calls about where to invest depth. I chose research and testing over polish, and it paid off. The usability issues caught in round two would have been expensive to fix post-handoff.</p>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">What I would do differently</h3>
             <div class="section-content">
-                <p>Every design decision involves choosing what to sacrifice. Here are the conscious tradeoffs we made.</p>
+                <p>I would push to involve analysts like Daniel earlier in the define phase - not just business stakeholders. Their day-to-day friction around data export and filtering was some of the most impactful work we did, and I almost missed it by starting with the executive layer.</p>
+                <p>I would also build a lightweight content strategy for the AI-generated summary section earlier. The copy voice matters as much as the UI pattern when you're asking users to trust a machine-generated recommendation.</p>
             </div>
-            <div class="subsection">
-                <h3 class="subsection-title">Clarity vs Unlimited Flexibility</h3>
-                <div class="section-content">
-                    <p>We chose guided questions over unlimited customization. This limited power user flexibility but dramatically improved adoption. The tradeoff was worth it: 80% of users needed guidance, 20% needed power. We prioritized the majority.</p>
-                </div>
-            </div>
-            <div class="subsection">
-                <h3 class="subsection-title">Gradual AI Adoption</h3>
-                <div class="section-content">
-                    <p>We rolled out AI features in phases: suggestions first, then alerts, then predictive. Each phase built user trust. Slower rollout meant slower impact, but higher acceptance. We chose sustainable adoption over rapid deployment.</p>
-                </div>
-            </div>
-            <div class="subsection">
-                <h3 class="subsection-title">Controlled Customization</h3>
-                <div class="section-content">
-                    <p>Advanced users asked for custom dashboards. We said no—instead we improved defaults and progressive disclosure. This reduced maintenance burden and improved consistency across regions. We chose system health over individual preferences.</p>
-                </div>
-            </div>
-        </section>
+        </div>
 
-        <section class="section fade-in">
-            <h2 class="section-title">Reflection</h2>
-            <div class="section-content">
-                <p>What worked: The decision to reduce cognitive load first, add power later. Listening to what users didn't say—the ignored features told us more than the used ones. Focusing on primary workflows, not edge cases.</p>
-                <p>What I would improve: Spent too long on iteration 1. Faster prototyping could have validated the "simplicity" hypothesis earlier. Underestimated mobile's importance from the start.</p>
-                <p>Future opportunities: Personalization at scale—learning user preferences and adapting the dashboard. Deeper AI integration for predictive insights. Cross-product sentiment correlation.</p>
-                <p>Key lesson: Constraint is your friend. The requirement to be fast and simple forced better design than "build everything" ever could. Enterprise design isn't about adding features—it's about removing barriers.</p>
-            </div>
-        </section>
+        <div class="quote">Constraint is your friend. The requirement to be fast and simple forced better design than "build everything" ever could. Enterprise design isn't about adding features - it's about removing barriers.</div>
+    </section>
+
+        </main>
+        <aside class="side-nav">
+            <h2>Page navigation</h2>
+            <nav>
+                <a href="#hero">Hero</a>
+                <a href="#problem">Problem</a>
+                <a href="#research">Research</a>
+                <a href="#design">Who We're Designing For</a>
+                <a href="#opportunities">Opportunities</a>
+                <a href="#process">Process</a>
+                <a href="#prototyping">Prototyping</a>
+                <a href="#testing">Testing</a>
+                <a href="#solution">Solution</a>
+                <a href="#handoff">Dev Handoff</a>
+                <a href="#outcomes">Outcomes</a>
+                <a href="#reflection">Reflection</a>
+            </nav>
+        </aside>
     </div>
 
-    <script>
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+</div>
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
         });
-    </script>
+    }, { threshold: 0.07 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    const navLinks = document.querySelectorAll('.side-nav a');
+    const sections = Array.from(navLinks).map(link => document.querySelector(link.hash)).filter(Boolean);
+    const setActiveLink = () => {
+        let current = sections[0];
+        sections.forEach(section => {
+            if (section.getBoundingClientRect().top <= 120) {
+                current = section;
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.toggle('active', link.hash === `#${current.id}`);
+        });
+    };
+    window.addEventListener('scroll', setActiveLink);
+    window.addEventListener('resize', setActiveLink);
+    setActiveLink();
+</script>
 </body>
 </html>
+

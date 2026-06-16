@@ -176,7 +176,6 @@
 
         .work-list {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 18px;
             list-style: none;
             margin: 0;
@@ -185,28 +184,43 @@
 
         .work-item {
             display: grid;
-            gap: 14px;
+            gap: 10px;
             padding: 20px 18px;
             border: 1px solid rgba(234,234,234,0.14);
             border-radius: 4px;
         }
 
-        .work-image {
-            min-height: 156px;
-            border-radius: 8px;
-            background: rgba(255,255,255,0.04);
-            border: 1px dashed rgba(234,234,234,0.2);
-            display: grid;
-            place-items: center;
+        .work-item-image {
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .work-item-image img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .work-item-breadcrumb {
+            font-size: 0.78rem;
             color: rgba(234,234,234,0.6);
-            font-size: 0.95rem;
-            font-weight: 500;
+            margin: 8px 0 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .work-item-title {
             font-size: 1.05rem;
             font-weight: 600;
             margin: 0;
+        }
+
+        .work-item-headline {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #E8693A;
+            margin: 6px 0 6px;
         }
 
         .work-item-subtitle {
@@ -451,7 +465,7 @@
             <nav class="nav-list" aria-label="Primary navigation">
                 <a href="#selected-work">Work</a>
                 <a href="#experience">Experience</a>
-                <a class="nav-action" href="Govind Bohra Resume 2026.pdf" download>Resume</a>
+                <a class="nav-action" href="Govind Bohra Resume.pdf" download>Resume</a>
                 <a href="#contact">Contact</a>
             </nav>
         </header>
@@ -462,7 +476,7 @@
             <p class="hero-copy">4+ years leading enterprise UX, design systems, and AI-assisted workflows for data-heavy SaaS products.</p>
             <div class="hero-actions">
                 <a class="btn-primary" href="#selected-work">View Work</a>
-                <a class="btn-secondary" href="Govind Bohra Resume 2026.pdf" download>Resume</a>
+                <a class="btn-secondary" href="Govind Bohra Resume.pdf" download>Resume</a>
             </div>
         </section>
 
@@ -476,28 +490,32 @@
 
             <ul class="work-list">
                 <li><a href="pulsetrack.html" class="work-item" style="text-decoration: none; color: inherit; display: grid;">
-                    <div class="work-image">Image placeholder</div>
+                    <div class="work-item-image">
+                        <img src="images/pulse-track-mockup.png" alt="PulseTrack case study preview" />
+                    </div>
+                    <p class="work-item-breadcrumb">Enterprise SaaS · Sentiment Dashboard</p>
                     <p class="work-item-title">Pluse Track — Enterprise Dashboard</p>
+                    <p class="work-item-headline">Turning Fragmented Client Data Into Decisions for 1,600+ Global Accounts.</p>
                     <p class="work-item-subtitle">Delivered a unified analytics platform for global product teams.</p>
-                    <div class="work-metrics">+30% task completion · 50% faster feedback cycles · rolled out to 3 regions</div>
                     <span style="font-size: 0.95rem; color: #E8693A; font-weight: 600; margin-top: 12px;">Read Full Case Study →</span>
                 </a></li>
                 <li><a href="kidcap.html" class="work-item" style="text-decoration: none; color: inherit; display: grid;">
-                    <div class="work-image">Image placeholder</div>
                     <p class="work-item-title">Kidcap — Fintech Savings Experience</p>
                     <p class="work-item-subtitle">Designed a mentor-led SIP onboarding flow for parents and learners.</p>
                     <div class="work-metrics">+18% activation · 4.8 NPS on first-time flows · compliance-ready UX</div>
                     <span style="font-size: 0.95rem; color: #E8693A; font-weight: 600; margin-top: 12px;">Read Full Case Study →</span>
                 </a></li>
-                <li><a href="prevent-it.html" class="work-item" style="text-decoration: none; color: inherit; display: grid;">
-                    <div class="work-image">Image placeholder</div>
-                    <p class="work-item-title">Prevent-It — HealthTech Platform</p>
-                    <p class="work-item-subtitle">Built fast triage and patient follow-up workflows for remote care.</p>
-                    <div class="work-metrics">+22% appointment adherence · 40% faster clinician response · accessible UI</div>
+                <li><a href="hop-electric.html" class="work-item" style="text-decoration: none; color: inherit; display: grid;">
+                    <div class="work-item-image">
+                        <img src="images/pulse-track-mockup.png" alt="HOP Electric case study preview" />
+                    </div>
+                    <p class="work-item-breadcrumb">E-Mobility · Product Launch</p>
+                    <p class="work-item-title">HOP Electric — Booking Platform</p>
+                    <p class="work-item-headline">Turning Fragmented Dealer Network Into Unified Digital Platform for 40% Online Sales.</p>
+                    <p class="work-item-subtitle">Built a complete e-commerce and dealer management platform for electric bike brand launch.</p>
                     <span style="font-size: 0.95rem; color: #E8693A; font-weight: 600; margin-top: 12px;">Read Full Case Study →</span>
                 </a></li>
                 <li><a href="freeinch.html" class="work-item" style="text-decoration: none; color: inherit; display: grid;">
-                    <div class="work-image">Image placeholder</div>
                     <p class="work-item-title">Freeinch — AR Architecture Tool</p>
                     <p class="work-item-subtitle">Created a spatial product experience for architects and builders.</p>
                     <div class="work-metrics">+12% client conversion · streamlined review flow · AR-first interface</div>

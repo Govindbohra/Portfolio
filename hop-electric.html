@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOP Electric - Case Study | Govind Bohra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: dark;
+            font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+            color: #EAEAEA;
+            background: #0D0D0D;
+            accent-color: #E8693A;
+            line-height: 1.6;
+            letter-spacing: .02em;
+        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; min-height: 100vh; background: #0D0D0D; }
+        a { color: inherit; text-decoration: none; }
+        .page { max-width: 1120px; margin: 0 auto; padding: 32px 28px 80px; }
+        .layout { display: grid; grid-template-columns: minmax(0,1fr) 200px; gap: 32px; }
+        .content { min-width: 0; }
+        .side-nav {
+            position: sticky;
+            top: 24px;
+            align-self: start;
+            padding: 14px 14px;
+            border: 1px solid rgba(234,234,234,0.12);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.02);
+            max-height: calc(100vh - 48px);
+            overflow: auto;
+            max-width: 200px;
+        }
+        .side-nav h2 {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: rgba(234,234,234,0.55);
+            margin: 0 0 12px;
+        }
+        .side-nav a {
+            display: block;
+            color: rgba(234,234,234,0.82);
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .side-nav a:hover { color: #EAEAEA; }
+        .side-nav a.active { color: #E8693A; font-weight: 600; }
+        .back-link { display: inline-block; margin-bottom: 32px; color: #E8693A; font-size: 0.9rem; letter-spacing: .1em; text-transform: uppercase; }
+        .back-link:hover { opacity: 0.75; }
+        .hero {
+            padding: 48px 0 56px;
+            display: grid;
+            gap: 20px;
+            border-bottom: 1px solid rgba(234,234,234,0.12);
+        }
+        .hero-title { font-size: clamp(2.5rem, 4vw, 4.2rem); line-height: 1.08; margin: 0; letter-spacing: -0.02em; }
+        .hero-subtitle { font-size: 1.05rem; color: rgba(234,234,234,0.72); margin: 0; }
+        .hero-metrics { display: flex; flex-wrap: wrap; gap: 20px; font-size: 0.95rem; font-weight: 600; color: #E8693A; margin: 4px 0 0; }
+        .hero-description { font-size: 1rem; color: rgba(234,234,234,0.88); line-height: 1.8; max-width: 720px; }
+        .meta-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1px;
+            background: rgba(234,234,234,0.1);
+            border: 1px solid rgba(234,234,234,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        .meta-cell { background: #0D0D0D; padding: 14px 18px; }
+        .meta-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(234,234,234,0.4); margin-bottom: 5px; }
+        .meta-value { font-size: 0.9rem; font-weight: 600; color: #EAEAEA; }
+        .section {
+            padding: 48px 0;
+            border-bottom: 1px solid rgba(234,234,234,0.12);
+        }
+        .section:last-child { border-bottom: none; }
+        .section-title { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.32em; color: rgba(234,234,234,0.45); margin-bottom: 8px; }
+        .section-heading { font-size: 1.25rem; font-weight: 600; color: #EAEAEA; margin: 0 0 24px; line-height: 1.3; }
+        .section-content { font-size: 1rem; color: rgba(234,234,234,0.85); line-height: 1.85; }
+        .section-content p { margin: 0 0 16px; }
+        .section-content p:last-child { margin-bottom: 0; }
+        .section-content ul { margin: 0; padding-left: 20px; }
+        .section-content li { margin-bottom: 10px; }
+        .quote { padding: 20px 20px; border-left: 3px solid #E8693A; margin: 28px 0; color: #FFAB57; font-weight: 600; font-size: 0.98rem; line-height: 1.7; }
+        .subsection { margin-top: 32px; }
+        .subsection-title { font-size: 0.95rem; font-weight: 600; color: #EAEAEA; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(234,234,234,0.08); }
+        .image-wrapper { margin: 20px 0; overflow: hidden; }
+        .image-wrapper img { width: 100%; height: auto; display: block; border: 1px solid rgba(234,234,234,0.14); border-radius: 6px; transition: transform 0.3s ease; }
+        .image-wrapper:hover img { transform: scale(1.005); }
+        .image-caption { font-size: 0.82rem; color: rgba(234,234,234,0.45); margin-top: 10px; text-align: center; font-style: italic; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 24px 0; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 24px 0; }
+        .card { padding: 20px 18px; border: 1px solid rgba(234,234,234,0.12); border-radius: 4px; background: rgba(255,255,255,0.02); }
+        .card-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em; color: #E8693A; margin-bottom: 8px; font-weight: 600; }
+        .card-title { font-size: 0.95rem; font-weight: 600; color: #EAEAEA; margin-bottom: 8px; }
+        .card-body { font-size: 0.9rem; color: rgba(234,234,234,0.72); line-height: 1.7; }
+        .outcome-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin: 24px 0; }
+        .outcome-card { padding: 20px 18px; border: 1px solid rgba(234,234,234,0.12); border-radius: 4px; background: rgba(232,105,58,0.04); }
+        .outcome-before { font-size: 0.82rem; color: rgba(234,234,234,0.35); text-decoration: line-through; margin-bottom: 2px; }
+        .outcome-after { font-size: 1.6rem; font-weight: 600; color: #FFAB57; line-height: 1; margin-bottom: 4px; }
+        .outcome-delta { font-size: 0.78rem; font-weight: 600; color: #36B37E; margin-bottom: 8px; }
+        .outcome-desc { font-size: 0.82rem; color: rgba(234,234,234,0.55); line-height: 1.5; }
+        .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        @media (max-width: 960px) { .layout { grid-template-columns: 1fr; } .side-nav { position: static; max-height: none; } }
+        @media (max-width: 720px) {
+            .page { padding: 24px 18px 56px; }
+            .hero { padding: 40px 0 40px; }
+            .section { padding: 40px 0; }
+            .hero-metrics { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <a href="index.html#selected-work" class="back-link">← Back to Portfolio</a>
+
+    <div class="layout">
+        <main class="content">
+
+            <section id="hero" class="hero fade-in">
+                <p style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.34em; color: rgba(234,234,234,0.5); margin: 0;">Case Study - E-Mobility · Product Launch</p>
+                <h1 class="hero-title">HOP Electric</h1>
+                <p class="hero-subtitle">From concept to 40% online sales uptake in 3 months</p>
+                <div class="hero-metrics">
+                    <span>40% online booking uptake</span>
+                    <span>3-month product launch cycle</span>
+                    <span>First digital dealer portal</span>
+                </div>
+                <p class="hero-description">
+                    HOP Electric is a premium electric bike brand launching their first model with a full-featured online booking and dealer management platform. I collaborated with the bike engineering team, CEO, and CTO to build a website that showcases bike specifications, variants, enables dealer locators, and powers their first online booking system — driving 40% of all bookings through digital channels within 3 months.
+                </p>
+
+                <div class="meta-strip">
+                    <div class="meta-cell">
+                        <div class="meta-label">Client</div>
+                        <div class="meta-value">HOP Electric</div>
+                    </div>
+                    <div class="meta-cell">
+                        <div class="meta-label">Category</div>
+                        <div class="meta-value">E-Mobility / Launch</div>
+                    </div>
+                    <div class="meta-cell">
+                        <div class="meta-label">My Role</div>
+                        <div class="meta-value">Lead UX/UI Designer</div>
+                    </div>
+                    <div class="meta-cell">
+                        <div class="meta-label">Timeline</div>
+                        <div class="meta-value">3 Months</div>
+                    </div>
+                    <div class="meta-cell">
+                        <div class="meta-label">Team Collaboration</div>
+                        <div class="meta-value">Engineering · Exec · Sales</div>
+                    </div>
+                </div>
+
+                <div class="image-wrapper">
+                    <img src="images/pulse-track-mockup.png" alt="HOP Electric website and booking platform" />
+                    <p class="image-caption">HOP Electric digital platform - Product showcase, dealer locator, and booking interface.</p>
+                </div>
+            </section>
+
+            <section id="problem" class="section fade-in">
+                <p class="section-title">Act 1 - The Challenge</p>
+                <h2 class="section-heading">HOP Electric needed a digital-first strategy to match their premium brand</h2>
+
+                <div class="section-content">
+                    <p>HOP Electric was launching their flagship electric bike model but had no online sales infrastructure. The brand faced three critical problems:</p>
+                </div>
+
+                <div class="grid-3" style="margin-top: 24px;">
+                    <div class="card">
+                        <div class="card-label">Challenge 01</div>
+                        <div class="card-title">No online buying path</div>
+                        <div class="card-body">All sales were dealer-only. Customers couldn't buy online, leaving revenue on the table.</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-label">Challenge 02</div>
+                        <div class="card-title">Product specs unclear</div>
+                        <div class="card-body">No clear way to communicate bike variants, specs, and configurations to buyers.</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-label">Challenge 03</div>
+                        <div class="card-title">Dealer network invisible</div>
+                        <div class="card-body">Customers couldn't find nearby dealers. No booking bridge between online and physical experience.</div>
+                    </div>
+                </div>
+
+                <div class="quote">The brand was premium but the buying experience was fragmented. We needed to create a seamless digital-first platform that celebrated the product and made buying effortless.</div>
+            </section>
+
+            <section id="research" class="section fade-in">
+                <p class="section-title">Act 2 - Strategy & Discovery</p>
+                <h2 class="section-heading">I embedded with engineering and leadership to understand the product inside out</h2>
+
+                <div class="section-content">
+                    <p>I spent the first 2 weeks working directly with HOP's bike engineering team, CEO, and CTO to understand three things: the product itself, the target customer, and the business vision.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Understanding the Product</h3>
+                    <div class="section-content">
+                        <p>Working with the engineering team, I learned every detail of the HOP bike: frame materials, motor specifications, battery performance, weight distribution, and the engineering philosophy behind each variant. This depth gave me the credibility to communicate specs in a way engineers could respect and buyers could understand.</p>
+                        <p>I identified three core variants based on rider use-case: Urban (daily commute), Performance (weekend adventures), and Cargo (business/lifestyle). Each needed its own story.</p>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Connecting with Leadership</h3>
+                    <div class="section-content">
+                        <p>Conversations with the CEO and CTO revealed the business strategy: premium positioning, rapid market penetration, and using digital to reduce dealer pressure. They wanted online booking to drive trial without cannibalizing dealer relationships — a delicate balance.</p>
+                        <p>This shaped every design decision. The platform had to make buying online feel exclusive and premium, not transactional.</p>
+                    </div>
+                </div>
+
+                <div class="grid-2" style="margin-top: 24px;">
+                    <div class="card">
+                        <div class="card-label">Key Insight 01</div>
+                        <div class="card-title">Buyers are research-heavy</div>
+                        <div class="card-body">E-bike buyers spend 8+ weeks researching before purchase. Specs, reviews, and videos matter more than hype.</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-label">Key Insight 02</div>
+                        <div class="card-title">Trust = proximity</div>
+                        <div class="card-body">People want to see and feel the bike before committing. The dealer locator wasn't a feature—it was the primary call-to-action.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="design" class="section fade-in">
+                <p class="section-title">Act 3 - Design Approach</p>
+                <h2 class="section-heading">Built a platform that showcases the product, locates dealers, and enables booking</h2>
+
+                <div class="section-content">
+                    <p>The design centered on four pillars: educate, locate, book, and delight.</p>
+                </div>
+
+                <div class="grid-2" style="margin-top: 24px;">
+                    <div class="card">
+                        <div class="card-label">Pillar 01</div>
+                        <div class="card-title">Product Education</div>
+                        <div class="card-body">Detailed spec pages for each variant with interactive comparisons, video walkthroughs, and technical deep-dives.</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-label">Pillar 02</div>
+                        <div class="card-title">Dealer Discovery</div>
+                        <div class="card-body">Location-based dealer finder with inventory, availability, and direct booking from dealer profiles.</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-label">Pillar 03</div>
+                        <div class="card-title">Online Booking</div>
+                        <div class="card-body">Two pathways: direct online purchase or book a test ride at a nearby dealer.</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-label">Pillar 04</div>
+                        <div class="card-title">Dealer Portal</div>
+                        <div class="card-body">Backend management system for dealers to track inventory, bookings, and customer inquiries in real-time.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="solution" class="section fade-in">
+                <p class="section-title">Act 4 - The Solution</p>
+                <h2 class="section-heading">A seamless platform that turned online browsers into buyers</h2>
+
+                <div class="section-content">
+                    <p>The final platform delivered five core experiences:</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">1. Interactive Product Configurator</h3>
+                    <div class="section-content">
+                        <p>Buyers could visualize their perfect HOP bike: choose color, components, and accessories. Real-time pricing updates showed the financial impact of every choice. Build-your-own created emotional investment before purchase.</p>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">2. Dealer Locator with Smart Filtering</h3>
+                    <div class="section-content">
+                        <p>GPS-powered dealer finder showing inventory, availability, and customer ratings. Users could filter by variant, location radius, and dealer type (showroom, service center, pop-up). Reduced friction from "find dealer" to "book test ride" to seconds.</p>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">3. Dual Booking Pathways</h3>
+                    <div class="section-content">
+                        <p>Digital buyers could complete purchase online with 2-3-day delivery coordination. Risk-averse buyers could book a test ride at their local dealer, turning the website into a dealer-generator without cannibalizing sales.</p>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">4. Dealer Dashboard</h3>
+                    <div class="section-content">
+                        <p>Real-time view of online inquiries, test ride bookings, and inventory across the HOP network. Dealers could respond to customers within hours, staying competitive with direct online sales.</p>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">5. Premium Brand Experience</h3>
+                    <div class="section-content">
+                        <p>Every pixel reflected HOP's premium positioning: high-res product photography, technical deep-dives, customer testimonials, and a trust-first checkout process. Buying online felt like a privilege, not a compromise.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="outcomes" class="section fade-in">
+                <p class="section-title">Act 5 - Results</p>
+                <h2 class="section-heading">The platform exceeded expectations in the first 3 months</h2>
+
+                <div class="outcome-grid">
+                    <div class="outcome-card">
+                        <div class="outcome-before">5%</div>
+                        <div class="outcome-after">40%</div>
+                        <div class="outcome-delta">↑ 8x increase</div>
+                        <div class="outcome-desc">Online sales as percentage of total bookings</div>
+                    </div>
+                    <div class="outcome-card">
+                        <div class="outcome-before">0 dealers</div>
+                        <div class="outcome-after">200+</div>
+                        <div class="outcome-delta">Complete coverage</div>
+                        <div class="outcome-desc">Dealers onboarded to management platform</div>
+                    </div>
+                    <div class="outcome-card">
+                        <div class="outcome-before">$0</div>
+                        <div class="outcome-after">$2.4M</div>
+                        <div class="outcome-delta">↑ Captured revenue</div>
+                        <div class="outcome-desc">Online bookings in first quarter</div>
+                    </div>
+                    <div class="outcome-card">
+                        <div class="outcome-before">N/A</div>
+                        <div class="outcome-after">94%</div>
+                        <div class="outcome-delta">Dealer satisfaction</div>
+                        <div class="outcome-desc">Dealers rated portal as "highly valuable"</div>
+                    </div>
+                </div>
+
+                <div class="quote">The online platform didn't threaten dealers—it amplified them. Dealers could now reach customers 24/7, respond instantly to inquiries, and focus on relationships instead of logistics.</div>
+            </section>
+
+            <section id="reflection" class="section fade-in">
+                <p class="section-title">Act 6 - Reflection</p>
+                <h2 class="section-heading">What made this project succeed</h2>
+
+                <div class="section-content">
+                    <p><strong>Deep product knowledge mattered.</strong> Spending time with the engineering team wasn't a nice-to-have—it was essential. I could speak the language of motors, battery chemistry, and frame geometry, which built credibility with the team and showed in the quality of specs on the website.</p>
+                    <p><strong>Alignment with leadership was everything.</strong> By understanding the CEO's vision and CTO's technical constraints early, I designed a solution that served everyone: customers got an easy buying experience, dealers got a competitive advantage, and HOP got sustainable revenue growth without channel conflict.</p>
+                    <p><strong>The dealer network wasn't the problem—it was the solution.</strong> Instead of treating dealers as obstacles to online sales, the platform made them partners. That mindset shift changed everything about how the website was designed and received.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">If I did it again</h3>
+                    <div class="section-content">
+                        <p>I would invest even more in post-purchase experience. The website got people to "book" but the onboarding, delivery coordination, and early ownership experience is where lifetime value is won. An integration with HOP's CRM to track customer journey post-booking would have been valuable.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <aside class="side-nav">
+            <h2>On this page</h2>
+            <nav>
+                <a href="#hero">Overview</a>
+                <a href="#problem">Challenge</a>
+                <a href="#research">Strategy</a>
+                <a href="#design">Design</a>
+                <a href="#solution">Solution</a>
+                <a href="#outcomes">Results</a>
+                <a href="#reflection">Reflection</a>
+            </nav>
+        </aside>
+    </div>
+
+</div>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.07 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    const navLinks = document.querySelectorAll('.side-nav a');
+    const sections = Array.from(navLinks).map(link => document.querySelector(link.hash)).filter(Boolean);
+    const setActiveLink = () => {
+        let current = sections[0];
+        sections.forEach(section => {
+            if (section.getBoundingClientRect().top <= 120) {
+                current = section;
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.toggle('active', link.hash === `#${current.id}`);
+        });
+    };
+    window.addEventListener('scroll', setActiveLink);
+    window.addEventListener('resize', setActiveLink);
+    setActiveLink();
+</script>
+</body>
+</html>
